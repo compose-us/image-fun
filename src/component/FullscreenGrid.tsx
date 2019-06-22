@@ -1,6 +1,8 @@
 import React from "react";
 import getUnsplashImage from "../service/get-unsplash-image";
 import useWindowSize from "../hook/use-window-size";
+import Image from "./Image";
+// import { useDrop } from "react-dnd";
 
 interface FullscreenGridProps {
   words: string[];
@@ -8,6 +10,7 @@ interface FullscreenGridProps {
 
 const FullscreenGrid: React.FC<FullscreenGridProps> = ({ words }) => {
   const [height, width] = useWindowSize();
+  // const drops = useDrop();
 
   const images = [];
   for (let i = 0; i < 6 * 6; i++) {
@@ -33,8 +36,15 @@ const FullscreenGrid: React.FC<FullscreenGridProps> = ({ words }) => {
         height: "100%"
       }}
     >
-      {images.map(image => (
-        <img key={image.url} src={image.url} width={image.width} height={image.height} alt="hmm." />
+      {images.map((image, index) => (
+        <Image
+          key={image.url}
+          x={index % 6}
+          y={Math.floor(index / 6)}
+          src={image.url}
+          width={image.width}
+          height={image.height}
+        />
       ))}
     </div>
   );
