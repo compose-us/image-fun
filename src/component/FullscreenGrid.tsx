@@ -5,10 +5,11 @@ import Image from "./Image";
 // import { useDrop } from "react-dnd";
 
 interface FullscreenGridProps {
+  onClick: () => void;
   words: string[];
 }
 
-const FullscreenGrid: React.FC<FullscreenGridProps> = ({ words }) => {
+const FullscreenGrid: React.FC<FullscreenGridProps> = ({ onClick, words }) => {
   const [height, width] = useWindowSize();
   // const drops = useDrop();
 
@@ -26,6 +27,7 @@ const FullscreenGrid: React.FC<FullscreenGridProps> = ({ words }) => {
 
   return (
     <div
+      onClick={onClick}
       style={{
         boxSizing: "border-box",
         display: "grid",
