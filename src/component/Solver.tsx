@@ -28,8 +28,11 @@ const Solver: React.FC<SolverProps> = ({
     <div className="solver">
       <form onSubmit={verifySolution}>
         <div className="solver-form">
-          <h2>This will be the solver</h2>
-          <input ref={solutionElement} type="text" />
+          <h2>Enter your solution</h2>
+          <div>
+            <input ref={solutionElement} type="text" />
+            <button type="submit">Solve!</button>
+          </div>
           <button type="button" onClick={() => hide()}>
             Look at pictures again
           </button>
