@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import getUnsplashImage from "../service/get-unsplash-image";
 import useWindowSize from "../hook/use-window-size";
 import Image from "./Image";
@@ -13,20 +13,24 @@ const FullscreenGrid: React.FC<FullscreenGridProps> = ({ onClick, words }) => {
   const [height, width] = useWindowSize();
   // const drops = useDrop();
 
-  const images = [];
-  for (let i = 0; i < 6 * 6; i++) {
-    const sizeX = Math.ceil(width / 6);
-    const sizeY = Math.ceil(height / 6);
-    const image = getUnsplashImage({
-      height: sizeY,
-      keyword: words[Math.floor(Math.random() * words.length)],
-      width: sizeX
-    });
-    images.push(image);
-  }
+  const images = useMemo(() => {
+    let images = [];
+    for (let i = 0; i < 6 * 6; i++) {
+      const sizeX = Math.ceil(width / 6);
+      const sizeY = Math.ceil(height / 6);
+      const image = getUnsplashImage({
+        height: sizeY,
+        keyword: words[Math.floor(Math.random() * words.length)],
+        width: sizeX
+      });
+      images.push(image);
+    }
+    return images;
+  }, [height, width, words]);
 
   return (
     <div
+      className="grid"
       onClick={onClick}
       style={{
         boxSizing: "border-box",
@@ -34,6 +38,7 @@ const FullscreenGrid: React.FC<FullscreenGridProps> = ({ onClick, words }) => {
         gridTemplateColumns: "repeat(6, 1fr)",
         gridTemplateRows: "repeat(6, 1fr)",
         overflow: "hidden",
+        position: "absolute",
         width: "100%",
         height: "100%"
       }}
