@@ -2,30 +2,34 @@ import React, { useMemo } from "react";
 import getUnsplashImage from "../service/get-unsplash-image";
 import useWindowSize from "../hook/use-window-size";
 import Image from "./Image";
-// import { useDrop } from "react-dnd";
 
 interface FullscreenGridProps {
   onClick: () => void;
   words: string[];
 }
 
+const generateList = (words: string[], num: number) => {
+  let keywords = [];
+  for (let i = 0; i < num; i++) {
+    keywords.push(words[Math.floor(Math.random() * words.length)]);
+  }
+  return keywords;
+};
+
 const FullscreenGrid: React.FC<FullscreenGridProps> = ({ onClick, words }) => {
   const [height, width] = useWindowSize();
   const sizeX = Math.ceil(width / 6);
   const sizeY = Math.ceil(height / 6);
-  // const drops = useDrop();
 
   const images = useMemo(() => {
-    let images = [];
-    for (let i = 0; i < 6 * 6; i++) {
-      const image = getUnsplashImage({
+    const keywordList = generateList(words, 6 * 6);
+    return keywordList.map(keyword =>
+      getUnsplashImage({
         height: sizeY,
-        keyword: words[Math.floor(Math.random() * words.length)],
+        keyword: keyword,
         width: sizeX
-      });
-      images.push(image);
-    }
-    return images;
+      })
+    );
   }, [sizeX, sizeY, words]);
 
   return (
