@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, FormEvent, useLayoutEffect } from "react";
 
 interface SolverProps {
   words: [string, string];
@@ -14,6 +14,10 @@ const Solver: React.FC<SolverProps> = ({
   wrong
 }) => {
   const solutionElement = useRef<HTMLInputElement>(null);
+  const onSubmit = (event: FormEvent) => {
+    event.preventDefault();
+    verifySolution();
+  };
   const verifySolution = () => {
     const split =
       solutionElement.current && solutionElement.current.value.split(/\s+/);
@@ -24,12 +28,18 @@ const Solver: React.FC<SolverProps> = ({
       wrong();
     }
   };
+  const focusSolutionElement = () => {
+    if (solutionElement.current) {
+      solutionElement.current.focus();
+    }
+  };
+  useLayoutEffect(() => focusSolutionElement());
   return (
-    <div className="solver">
-      <form onSubmit={verifySolution}>
+    <div className="solver" onClick={focusSolutionElement}>
+      <form onSubmit={onSubmit}>
         <div className="solver-form">
           <h2>Enter your solution</h2>
-          <div>
+          <div className="solver-input">
             <input ref={solutionElement} type="text" />
             <button type="submit">Solve!</button>
           </div>

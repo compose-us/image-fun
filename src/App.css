@@ -1,5 +1,6 @@
 .App {
   position: relative;
+  background-color: #000;
   text-align: center;
   height: 100%;
   width: 100%;
@@ -28,16 +29,13 @@
 
 .restart {
   position: absolute;
-  top: 0;
-  right: 0;
-  margin: 25px;
-  padding: 25px;
+  top: 25px;
+  right: 25px;
   z-index: 2;
 }
 
 .solver {
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.4);
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -46,15 +44,50 @@
   width: 100%;
 }
 
-.solving .grid {
-  filter: blur(5px);
+.solver-form {
+  color: #fff;
+  text-shadow: -1px -1px #000, -1px 0 #000, -1px 1px #000, 0 -1px #000,
+    0 1px #000, 1px -1px #000, 1px 0 #000, 1px 1px #000;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.solver-input {
+  margin-bottom: 25px;
+}
+
+button {
+  padding: 10px;
+  background-color: #000;
+  border: 1px solid #000;
+  color: #fff;
+}
+
+.solved .solver-form .solver-input button {
+  background-color: #0f0;
+  content: "Solved!";
+}
+.solver-form .solver-input button {
+  border-radius: 0 10px 10px 0;
+}
+
+.solver-form .solver-input input {
+  padding: 10px;
+  border: 1px solid #000;
+  border-radius: 10px 0 0 10px;
+  width: 300px;
+}
+
+.solver-form .solver-input input:focus {
+  outline: none;
+}
+
+.grid {
+  transition: filter 1s;
+}
+
+.solving .grid {
+  filter: brightness(0.6) blur(10px);
+}
+
+.general .grid {
+  filter: brightness(1) blur(0px);
 }
