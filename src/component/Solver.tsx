@@ -39,6 +39,7 @@ const Solver: React.FC<SolverProps> = ({
       <form onSubmit={onSubmit}>
         <div className="solver-form">
           <h2>Enter your solution</h2>
+          <p>So you think you know what word combination we look for?</p>
           <div className="solver-input">
             <input ref={solutionElement} type="text" />
             <button type="submit">Solve!</button>

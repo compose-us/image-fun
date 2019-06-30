@@ -57,7 +57,7 @@
 button {
   padding: 10px;
   background-color: #000;
-  border: 1px solid #000;
+  border: 1px solid #fff;
   color: #fff;
 }
 
@@ -65,7 +65,9 @@ button {
   background-color: #0f0;
   content: "Solved!";
 }
+
 .solver-form .solver-input button {
+  border-left-width: 0;
   border-radius: 0 10px 10px 0;
 }
 
@@ -73,6 +75,7 @@ button {
   padding: 10px;
   border: 1px solid #000;
   border-radius: 10px 0 0 10px;
+  border-right-width: 0;
   width: 300px;
 }
 
