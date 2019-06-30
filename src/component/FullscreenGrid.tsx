@@ -1,4 +1,5 @@
 import React, { useMemo } from "react";
+import generateList from "../lib/generate-list";
 import getUnsplashImage from "../service/get-unsplash-image";
 import useWindowSize from "../hook/use-window-size";
 import Image from "./Image";
@@ -7,14 +8,6 @@ interface FullscreenGridProps {
   onClick: () => void;
   words: string[];
 }
-
-const generateList = (words: string[], num: number) => {
-  let keywords = [];
-  for (let i = 0; i < num; i++) {
-    keywords.push(words[Math.floor(Math.random() * words.length)]);
-  }
-  return keywords;
-};
 
 const FullscreenGrid: React.FC<FullscreenGridProps> = ({ onClick, words }) => {
   const [height, width] = useWindowSize();
