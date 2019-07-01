@@ -15,4 +15,10 @@ describe("generate-list", () => {
     let num = 6 * 6;
     expect(generateList(["hello", "world"], num).length).toEqual(num);
   });
+
+  it("selects equally", () => {
+    const result = generateList(["hello", "world"], 10);
+    expect(result.filter(w => w === "hello").length).toBe(5);
+    expect(result.filter(w => w === "world").length).toBe(5);
+  });
 });
