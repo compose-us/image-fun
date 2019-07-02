@@ -27,7 +27,20 @@ describe("generate-list", () => {
     const words = ["hello", "world", "stuff", "pow"];
     const result = generateList(words, num);
     for (let word of words) {
-      console.log({ word, result });
+      expect(result.filter(w => w === word).length).toBeGreaterThanOrEqual(
+        Math.floor(num / words.length)
+      );
+      expect(result.filter(w => w === word).length).toBeLessThanOrEqual(
+        Math.ceil(num / words.length)
+      );
+    }
+  });
+
+  it("distributes evenly for different settings", () => {
+    const num = 9;
+    const words = ["hello", "world", "stuff", "pow"];
+    const result = generateList(words, num);
+    for (let word of words) {
       expect(result.filter(w => w === word).length).toBeGreaterThanOrEqual(
         Math.floor(num / words.length)
       );

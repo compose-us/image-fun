@@ -10,8 +10,9 @@ const generateList = (words: string[], num: number) => {
       freeSpace = freeSpace.filter(index => index !== selectedIndex);
     }
   }
-  freeSpace.forEach(remainingIndex => {
-    keywords[remainingIndex] = words[Math.floor(Math.random() * words.length)];
+  // assert freeSpace.length < words.length
+  freeSpace.forEach((remainingIndex, index) => {
+    keywords[remainingIndex] = words[index];
   });
   return keywords;
 };
