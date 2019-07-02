@@ -21,4 +21,19 @@ describe("generate-list", () => {
     expect(result.filter(w => w === "hello").length).toBe(5);
     expect(result.filter(w => w === "world").length).toBe(5);
   });
+
+  it("distributes evenly but still randomly", () => {
+    const num = 7;
+    const words = ["hello", "world", "stuff", "pow"];
+    const result = generateList(words, num);
+    for (let word of words) {
+      console.log({ word, result });
+      expect(result.filter(w => w === word).length).toBeGreaterThanOrEqual(
+        Math.floor(num / words.length)
+      );
+      expect(result.filter(w => w === word).length).toBeLessThanOrEqual(
+        Math.ceil(num / words.length)
+      );
+    }
+  });
 });
