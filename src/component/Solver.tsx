@@ -1,15 +1,19 @@
 import React, { useRef, FormEvent, useLayoutEffect } from "react";
 
+import style from "./Solver.module.css";
+
 interface SolverProps {
   words: [string, string];
   hide: () => void;
   solve: () => void;
+  solved: boolean;
   wrong: () => void;
 }
 
 const Solver: React.FC<SolverProps> = ({
   hide,
   solve,
+  solved = false,
   words: [first, second],
   wrong
 }) => {
@@ -35,12 +39,12 @@ const Solver: React.FC<SolverProps> = ({
   };
   useLayoutEffect(() => focusSolutionElement());
   return (
-    <div className="solver" onClick={focusSolutionElement}>
+    <div className={style.root} onClick={focusSolutionElement}>
       <form onSubmit={onSubmit}>
-        <div className="solver-form">
+        <div className={style.form}>
           <h2>Enter your solution</h2>
           <p>So you think you know what word combination we look for?</p>
-          <div className="solver-input">
+          <div className={`${style.input} ${solved ? style.solved : ""}`}>
             <input ref={solutionElement} type="text" />
             <button type="submit">Solve!</button>
           </div>

@@ -27,33 +27,6 @@
   color: #61dafb;
 }
 
-.restart {
-  position: absolute;
-  top: 25px;
-  right: 25px;
-  z-index: 2;
-}
-
-.solver {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
-  position: absolute;
-  width: 100%;
-}
-
-.solver-form {
-  color: #fff;
-  text-shadow: -1px -1px #000, -1px 0 #000, -1px 1px #000, 0 -1px #000,
-    0 1px #000, 1px -1px #000, 1px 0 #000, 1px 1px #000;
-}
-
-.solver-input {
-  margin-bottom: 25px;
-}
-
 button {
   padding: 10px;
   background-color: #000;
@@ -61,26 +34,16 @@ button {
   color: #fff;
 }
 
+.restart {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  z-index: 2;
+}
+
 .solved .solver-form .solver-input button {
   background-color: #0f0;
   content: "Solved!";
-}
-
-.solver-form .solver-input button {
-  border-left-width: 0;
-  border-radius: 0 10px 10px 0;
-}
-
-.solver-form .solver-input input {
-  padding: 10px;
-  border: 1px solid #000;
-  border-radius: 10px 0 0 10px;
-  border-right-width: 0;
-  width: 300px;
-}
-
-.solver-form .solver-input input:focus {
-  outline: none;
 }
 
 .grid {

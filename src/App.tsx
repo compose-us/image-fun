@@ -17,11 +17,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div
-      className={`App ${showSolve ? "solving" : "general"} ${
-        solved ? "solved" : ""
-      }`}
-    >
+    <div className={`App ${showSolve ? "solving" : "general"}`}>
       <FullscreenGrid onClick={showSolver} words={pair} />
       <button className="restart" type="button" onClick={reset}>
         Restart
@@ -33,6 +29,7 @@ const App: React.FC = () => {
             window.alert("solved!");
             setSolved(true);
           }}
+          solved={solved}
           wrong={() => window.alert("wrong!")}
           words={pair}
         />
