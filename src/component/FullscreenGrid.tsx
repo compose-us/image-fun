@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import generateList from "../lib/generate-list";
-import getUnsplashImage from "../service/get-unsplash-image";
+import getUnsplashImage from "../lib/get-unsplash-image";
 import useWindowSize from "../hook/use-window-size";
 import Image from "./Image";
 
