@@ -35,7 +35,6 @@
   outline: none;
 }
 
-.solved button {
-  background-color: #0f0;
-  content: "Solved!";
+button {
+  background-color: var(--button-color);
 }

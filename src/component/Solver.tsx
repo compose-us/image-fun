@@ -46,7 +46,7 @@ const Solver: React.FC<SolverProps> = ({
           <p>So you think you know what word combination we look for?</p>
           <div className={`${style.input} ${solved ? style.solved : ""}`}>
             <input ref={solutionElement} type="text" />
-            <button type="submit">Solve!</button>
+            <button type="submit">{solved ? "Solved!" : "Solve!"}</button>
           </div>
           <button type="button" onClick={() => hide()}>
             Look at pictures again

@@ -12,12 +12,17 @@ const App: React.FC = () => {
   const showSolver = useCallback(() => setShowSolve(true), []);
   const hideSolver = useCallback(() => setShowSolve(false), []);
   const reset = () => {
+    setShowSolve(false);
     setSolved(false);
     setPair(pairGenerator());
   };
 
   return (
-    <div className={`App ${showSolve ? "solving" : "general"}`}>
+    <div
+      className={`App ${showSolve ? "solving" : "general"} ${
+        solved ? "solved" : ""
+      }`}
+    >
       <FullscreenGrid onClick={showSolver} words={pair} />
       <button className="restart" type="button" onClick={reset}>
         Restart
