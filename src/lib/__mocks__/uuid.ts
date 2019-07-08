@@ -6,4 +6,4 @@ function v4() {
 
 uuidMock.v4 = v4;
 
-module.exports = uuidMock;
+export { uuidMock };
