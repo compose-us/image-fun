@@ -1,3 +1,10 @@
+:root {
+  --button-color: #000;
+}
+.solved {
+  --button-color: #0f0;
+}
+
 .App {
   position: relative;
   background-color: #000;
@@ -41,9 +48,8 @@ button {
   z-index: 2;
 }
 
-.solved .solver-form .solver-input button {
-  background-color: #0f0;
-  content: "Solved!";
+.solver-form .solver-input button {
+  background-color: var(--button-color);
 }
 
 .grid {
