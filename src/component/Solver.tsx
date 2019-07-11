@@ -37,7 +37,7 @@ const Solver: React.FC<SolverProps> = ({
       solutionElement.current.focus();
     }
   };
-  useLayoutEffect(() => focusSolutionElement());
+  useLayoutEffect(focusSolutionElement);
   return (
     <div className={style.root} onClick={focusSolutionElement}>
       <form onSubmit={onSubmit}>
