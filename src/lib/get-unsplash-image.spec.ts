@@ -15,7 +15,6 @@ describe("get-unsplash-image", () => {
     expect(result.height).toBe(height);
     expect(result.keyword).toBe(keyword);
     expect(result.width).toBe(width);
-    console.log(result.url);
   });
 
   it("uses uuid", () => {
