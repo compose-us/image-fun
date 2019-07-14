@@ -4,12 +4,19 @@ import getUnsplashImage from "../../lib/get-unsplash-image";
 import useWindowSize from "../../hook/use-window-size";
 import Image from "../Image";
 
+import style from "./FullscreenGrid.module.css";
+
 interface FullscreenGridProps {
   onClick: () => void;
+  solving: boolean;
   words: string[];
 }
 
-const FullscreenGrid: React.FC<FullscreenGridProps> = ({ onClick, words }) => {
+const FullscreenGrid: React.FC<FullscreenGridProps> = ({
+  onClick,
+  solving = false,
+  words
+}) => {
   const [height, width] = useWindowSize();
   const sizeX = Math.ceil(width / 6);
   const sizeY = Math.ceil(height / 6);
@@ -27,7 +34,7 @@ const FullscreenGrid: React.FC<FullscreenGridProps> = ({ onClick, words }) => {
 
   return (
     <div
-      className="grid"
+      className={`${style.root} ${solving ? style.solving : style.general}`}
       onClick={onClick}
       style={{
         boxSizing: "border-box",

@@ -1,24 +1,26 @@
 :root {
   --button-color: #000;
+  --button-text-color: #fff;
 }
 
 .solved {
   --button-color: #0f0;
-}
-
-.App {
-  position: relative;
-  background-color: #000;
-  text-align: center;
-  height: 100%;
-  width: 100%;
+  --button-text-color: #000;
 }
 
 button {
   padding: 10px;
   background-color: var(--button-color);
-  border: 1px solid #fff;
-  color: #fff;
+  border: 1px solid var(--button-text-color);
+  color: var(--button-text-color);
+}
+
+.app {
+  position: relative;
+  background-color: #000;
+  text-align: center;
+  height: 100%;
+  width: 100%;
 }
 
 .restart {

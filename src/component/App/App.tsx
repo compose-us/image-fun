@@ -3,7 +3,7 @@ import FullscreenGrid from "../FullscreenGrid";
 import Solver from "../Solver";
 import pairGenerator from "../../lib/pair-generator";
 
-import "./App.css";
+import style from "./App.module.css";
 
 const App: React.FC = () => {
   const [showSolve, setShowSolve] = useState(false);
@@ -19,12 +19,12 @@ const App: React.FC = () => {
 
   return (
     <div
-      className={`App ${showSolve ? "solving" : "general"} ${
-        solved ? "solved" : ""
+      className={`${style.app} ${showSolve ? style.solving : style.general} ${
+        solved ? style.solved : ""
       }`}
     >
-      <FullscreenGrid onClick={showSolver} words={pair} />
-      <button className="restart" type="button" onClick={reset}>
+      <FullscreenGrid onClick={showSolver} solving={showSolve} words={pair} />
+      <button className={style.restart} type="button" onClick={reset}>
         Restart
       </button>
       {showSolve && (
