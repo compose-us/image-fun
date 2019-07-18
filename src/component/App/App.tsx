@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react";
 import FullscreenGrid from "../FullscreenGrid";
 import Solver from "../Solver";
-import pairGenerator from "../../lib/pair-generator";
+import pairGenerator from "../../lib/pair-generator/pair-generator";
 
 import style from "./App.module.css";
 

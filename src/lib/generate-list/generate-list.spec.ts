@@ -1,4 +1,4 @@
-import generateList from "./generate-list";
+import generateList from ".";
 
 describe("generate-list", () => {
   it("generates an empty list when num === 0", () => {

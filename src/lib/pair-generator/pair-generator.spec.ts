@@ -1,4 +1,4 @@
-import pairGenerator from "./pair-generator";
+import pairGenerator from ".";
 
 describe("pair-generator", () => {
   it("does not raise an exception when called", () => {

@@ -1,4 +1,4 @@
-import getUnsplashImage from "./get-unsplash-image";
+import getUnsplashImage from ".";
 
 describe("get-unsplash-image", () => {
   it("generates an url string", () => {
