@@ -1,7 +1,12 @@
 const listOfPairs: [string, string][] = [
-  ["grass", "roots"],
+  ["birthday", "cake"],
   ["doggy", "bag"],
+  ["grass", "roots"],
+  ["lion", "king"],
   ["money", "bag"],
+  ["mountain", "bike"],
+  ["shopping", "cart"],
+  ["taxi", "driver"],
   ["tv", "channel"]
 ];
 
