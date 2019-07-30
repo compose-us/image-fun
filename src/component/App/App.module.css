@@ -1,11 +1,15 @@
 :root {
-  --button-color: #000;
-  --button-text-color: #fff;
+  --color-palette-black: #000;
+  --color-palette-white: #fff;
+  --color-palette-green: #0f0;
+
+  --button-color: var(--color-palette-black);
+  --button-text-color: var(--color-palette-white);
 }
 
 .solved {
-  --button-color: #0f0;
-  --button-text-color: #000;
+  --button-color: var(--color-palette-green);
+  --button-text-color: var(--color-palette-black);
 }
 
 button {
