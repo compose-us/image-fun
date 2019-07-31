@@ -9,13 +9,16 @@ const listOfPairs: [string, string][] = [
   ["iron", "man"],
   ["lion", "king"],
   ["money", "bag"],
+  ["monkey", "wrench"],
   ["mountain", "bike"],
   ["photo", "shoot"],
   ["shopping", "cart"],
   ["space", "ship"],
   ["taxi", "driver"],
   ["traffic", "light"],
-  ["tv", "channel"]
+  ["travel", "guide"],
+  ["tv", "channel"],
+  ["water", "cooler"]
 ];
 
 export default function pairGenerator(): [string, string] {
