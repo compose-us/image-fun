@@ -4,13 +4,21 @@ import Solver from "../Solver";
 import pairGenerator from "../../lib/pair-generator/pair-generator";
 
 import style from "./App.module.css";
+import Dialog from "../Dialog";
 
 const App: React.FC = () => {
   const [showSolve, setShowSolve] = useState(false);
+  const [showDialogWindow, setShowDialogWindow] = useState(false);
   const [solved, setSolved] = useState(false);
   const [pair, setPair] = useState(() => pairGenerator());
   const showSolver = useCallback(() => setShowSolve(true), []);
   const hideSolver = useCallback(() => setShowSolve(false), []);
+  const showDialog = useCallback(() => {
+    setShowDialogWindow(true);
+  }, []);
+  const hideDialog = useCallback(() => {
+    setShowDialogWindow(false);
+  }, []);
   const reset = () => {
     setShowSolve(false);
     setSolved(false);
@@ -31,12 +39,23 @@ const App: React.FC = () => {
         <Solver
           hide={hideSolver}
           solve={() => {
-            window.alert("solved!");
+            showDialog();
             setSolved(true);
           }}
           solved={solved}
-          wrong={() => window.alert("wrong!")}
+          wrong={showDialog}
           words={pair}
+        />
+      )}
+      {showDialogWindow && (
+        <Dialog
+          close={hideDialog}
+          title={solved ? "Yesss!" : "No..."}
+          message={
+            solved
+              ? "You solved this puzzle!"
+              : "Sorry, this is not the correct thing"
+          }
         />
       )}
     </div>
