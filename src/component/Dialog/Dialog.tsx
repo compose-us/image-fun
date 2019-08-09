@@ -10,10 +10,11 @@ interface DialogProps {
 
 const Dialog: React.FC<DialogProps> = ({ close, message, title }) => {
   return (
-    <div className={style.root}>
-      <button onClick={close}>Close</button>
-      <h2>{title}</h2>
-      <div>{message}</div>
+    <div className={style.root} onClick={close}>
+      <div className={style.content}>
+        <h2>{title}</h2>
+        <div>{message}</div>
+      </div>
     </div>
   );
 };

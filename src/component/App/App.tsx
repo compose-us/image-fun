@@ -20,6 +20,7 @@ const App: React.FC = () => {
     setShowDialogWindow(false);
   }, []);
   const reset = () => {
+    setShowDialogWindow(false);
     setShowSolve(false);
     setSolved(false);
     setPair(pairGenerator());
@@ -50,7 +51,7 @@ const App: React.FC = () => {
       {showDialogWindow && (
         <Dialog
           close={hideDialog}
-          title={solved ? "Yesss!" : "No..."}
+          title={solved ? "Yesss!" : "Nope..."}
           message={
             solved
               ? "You solved this puzzle!"
