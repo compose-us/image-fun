@@ -33,9 +33,6 @@ const App: React.FC = () => {
       }`}
     >
       <FullscreenGrid onClick={showSolver} solving={showSolve} words={pair} />
-      <button className={style.restart} type="button" onClick={reset}>
-        Restart
-      </button>
       {showSolve && (
         <Solver
           hide={hideSolver}
@@ -48,10 +45,14 @@ const App: React.FC = () => {
           words={pair}
         />
       )}
+      <button className={style.restart} type="button" onClick={reset}>
+        Restart
+      </button>
       {showDialogWindow && (
         <Dialog
           close={hideDialog}
           title={solved ? "Yesss!" : "Nope..."}
+          party={solved}
           message={
             solved
               ? "You solved this puzzle!"
