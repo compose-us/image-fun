@@ -37,7 +37,6 @@ button {
   position: absolute;
   top: 25px;
   right: 25px;
-  /* z-index: 2; */
 }
 
 .solver-form .solver-input button {
