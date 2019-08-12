@@ -14,53 +14,8 @@
 }
 
 .content {
+  animation: var(--animate-when-solved);
   background-color: var(--color-palette-black);
   box-shadow: 0 0 25px var(--color-palette-white);
   padding: 25px;
-}
-
-.party .content {
-  animation: party 5s linear infinite;
-}
-
-@keyframes party {
-  0% {
-    box-shadow: 0 0 10px #f00;
-  }
-  8% {
-    box-shadow: 0 0 20px #ff0;
-  }
-  16% {
-    box-shadow: 0 0 30px #0f0;
-  }
-  24% {
-    box-shadow: 0 0 20px #0ff;
-  }
-  32% {
-    box-shadow: 0 0 10px #00f;
-  }
-  40% {
-    box-shadow: 0 0 20px #f0f;
-  }
-  48% {
-    box-shadow: 0 0 30px #f00;
-  }
-  56% {
-    box-shadow: 0 0 20px #ff0;
-  }
-  64% {
-    box-shadow: 0 0 10px #0f0;
-  }
-  72% {
-    box-shadow: 0 0 20px #0ff;
-  }
-  80% {
-    box-shadow: 0 0 30px #00f;
-  }
-  88% {
-    box-shadow: 0 0 20px #f0f;
-  }
-  100% {
-    box-shadow: 0 0 10px #f00;
-  }
 }
