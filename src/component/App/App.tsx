@@ -37,11 +37,14 @@ const App: React.FC = () => {
         <Solver
           hide={hideSolver}
           solve={() => {
-            showDialog();
             setSolved(true);
+            showDialog();
           }}
           solved={solved}
-          wrong={showDialog}
+          wrong={() => {
+            setSolved(false);
+            showDialog();
+          }}
           words={pair}
         />
       )}
