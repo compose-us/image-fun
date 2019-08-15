@@ -39,6 +39,12 @@ button {
   right: 25px;
 }
 
+.hint {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+}
+
 .solver-form .solver-input button {
   background-color: var(--button-color);
 }

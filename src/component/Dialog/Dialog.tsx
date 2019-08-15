@@ -4,12 +4,17 @@ import style from "./Dialog.module.css";
 
 interface DialogProps {
   title: string;
-  party: Boolean;
+  party?: Boolean;
   message: string;
   close: () => void;
 }
 
-const Dialog: React.FC<DialogProps> = ({ close, message, party, title }) => {
+const Dialog: React.FC<DialogProps> = ({
+  close,
+  message,
+  party = false,
+  title
+}) => {
   return (
     <div
       className={`${style.root} ${party ? style.party : ""}`}

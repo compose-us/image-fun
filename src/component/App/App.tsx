@@ -5,10 +5,12 @@ import pairGenerator from "../../lib/pair-generator/pair-generator";
 
 import style from "./App.module.css";
 import Dialog from "../Dialog";
+import Hint from "../Hint";
 
 const App: React.FC = () => {
   const [showSolve, setShowSolve] = useState(false);
   const [showDialogWindow, setShowDialogWindow] = useState(false);
+  const [showHintWindow, setShowHintWindow] = useState(false);
   const [solved, setSolved] = useState(false);
   const [pair, setPair] = useState(() => pairGenerator());
   const showSolver = useCallback(() => setShowSolve(true), []);
@@ -25,6 +27,8 @@ const App: React.FC = () => {
     setSolved(false);
     setPair(pairGenerator());
   };
+  const hideHint = useCallback(() => setShowHintWindow(false), []);
+  const showHint = useCallback(() => setShowHintWindow(true), []);
 
   return (
     <div
@@ -51,6 +55,10 @@ const App: React.FC = () => {
       <button className={style.restart} type="button" onClick={reset}>
         Restart
       </button>
+      <button className={style.hint} type="button" onClick={showHint}>
+        Hint
+      </button>
+      {showHintWindow && <Hint hide={hideHint} words={pair} />}
       {showDialogWindow && (
         <Dialog
           close={hideDialog}
