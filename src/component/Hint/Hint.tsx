@@ -7,7 +7,7 @@ interface HintProps {
   hide: () => void;
 }
 
-const Solver: React.FC<HintProps> = ({ hide, words: [first, second] }) => {
+const Hint: React.FC<HintProps> = ({ hide, words: [first, second] }) => {
   const hint = useMemo(() => {
     const word = Math.random() < 0.5 ? first : second;
     const chars = word.split("");
@@ -27,4 +27,4 @@ const Solver: React.FC<HintProps> = ({ hide, words: [first, second] }) => {
   );
 };
 
-export default Solver;
+export default Hint;
