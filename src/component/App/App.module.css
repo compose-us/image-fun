@@ -12,8 +12,6 @@
 }
 
 .solved {
-  --button-color: var(--color-palette-green);
-  --button-text-color: var(--color-palette-black);
   --animate-when-solved: var(--animation-party);
 }
 
