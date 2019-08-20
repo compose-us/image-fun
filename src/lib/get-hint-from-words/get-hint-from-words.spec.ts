@@ -5,7 +5,6 @@ describe("getHintFromWords", () => {
     const first = "first";
     const second = "second";
     const hint = getHintFromWords(first, second);
-    console.log(hint);
     expect(hint.length === first.length || hint.length === second.length).toBe(
       true
     );
