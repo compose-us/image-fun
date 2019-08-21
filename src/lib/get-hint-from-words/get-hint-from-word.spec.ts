@@ -18,4 +18,19 @@ describe("getHintFromWord", () => {
     const hint = getHintFromWord(word);
     expect(hint.length).toBe(word.length);
   });
+
+  it("distributes the dots throughout the word", () => {
+    const word = "word";
+    const maxChars = word.length / 3;
+    const hintChars = getHintFromWord(word).split("");
+    console.log(hintChars);
+    for (let c of hintChars) {
+      expect(hintChars.filter(w => w === c).length).toBeLessThanOrEqual(
+        Math.floor(word.length / maxChars)
+      );
+      expect(hintChars.filter(w => w === ".").length).toBeGreaterThanOrEqual(
+        word.length - Math.ceil(word.length / maxChars)
+      );
+    }
+  });
 });
