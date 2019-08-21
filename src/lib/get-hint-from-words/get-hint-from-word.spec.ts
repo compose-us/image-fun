@@ -12,10 +12,10 @@ describe("getHintFromWord", () => {
       expect(chars.find(c => c === char)).not.toBeFalsy();
     });
   });
+
   it("should have the same amount of chars as one of the two words", () => {
     const word = "word";
     const hint = getHintFromWord(word);
-    console.log(hint);
     expect(hint.length).toBe(word.length);
   });
 });
