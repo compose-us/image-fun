@@ -48,7 +48,7 @@ const Solver: React.FC<SolverProps> = ({
             <input ref={solutionElement} type="text" />
             <button type="submit">{solved ? "Solved!" : "Solve!"}</button>
           </div>
-          <button type="button" onClick={() => hide()}>
+          <button type="button" onClick={hide}>
             Look at pictures again
           </button>
         </div>
