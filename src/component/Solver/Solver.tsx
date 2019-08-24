@@ -39,18 +39,23 @@ const Solver: React.FC<SolverProps> = ({
   };
   useLayoutEffect(focusSolutionElement);
   return (
-    <div className={style.root} onClick={focusSolutionElement}>
+    <div className={style.root} onClick={hide}>
       <form onSubmit={onSubmit}>
         <div className={style.form}>
           <h2>Enter your solution</h2>
           <p>So you think you know what word combination we look for?</p>
           <div className={`${style.input} ${solved ? style.solved : ""}`}>
             <input ref={solutionElement} type="text" />
-            <button type="submit">{solved ? "Solved!" : "Solve!"}</button>
+            <button
+              // Submitting with 'enter' causes a click on the submit button,
+              // which propagates up to the `hide` onClick listener. We prevent
+              // this with the `stopPropagation` call on click.
+              onClick={e => e.stopPropagation()}
+              type="submit"
+            >
+              {solved ? "Solved!" : "Solve!"}
+            </button>
           </div>
-          <button type="button" onClick={hide}>
-            Look at pictures again
-          </button>
         </div>
       </form>
     </div>
