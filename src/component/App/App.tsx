@@ -63,7 +63,6 @@ const App: React.FC = () => {
         <Dialog
           close={hideDialog}
           title={solved ? "Yesss!" : "Nope..."}
-          party={solved}
           message={
             solved
               ? "You solved this puzzle!"
