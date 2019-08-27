@@ -1,4 +1,10 @@
-import React, { useRef, FormEvent, useLayoutEffect } from "react";
+import React, {
+  useRef,
+  FormEvent,
+  useLayoutEffect,
+  useEffect,
+  useCallback
+} from "react";
 
 import style from "./Solver.module.css";
 
@@ -37,6 +43,20 @@ const Solver: React.FC<SolverProps> = ({
       solutionElement.current.focus();
     }
   };
+  const closeOnEscape = useCallback(
+    (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        event.stopPropagation();
+        hide();
+      }
+    },
+    [hide]
+  );
+  useEffect(() => {
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [closeOnEscape]);
   useLayoutEffect(focusSolutionElement);
   return (
     <div className={style.root} onClick={hide}>
