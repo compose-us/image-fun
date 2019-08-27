@@ -20,11 +20,8 @@ const Dialog: React.FC<DialogProps> = ({ close, message, title }) => {
     [close]
   );
   useEffect(() => {
-    const oldKeypress = window.onkeypress;
-    window.onkeypress = closeOnEnter;
-    return () => {
-      window.onkeypress = oldKeypress;
-    };
+    window.addEventListener("keydown", closeOnEnter);
+    return () => window.removeEventListener("keydown", closeOnEnter);
   }, [closeOnEnter]);
   return (
     <div className={style.root} onClick={close}>
