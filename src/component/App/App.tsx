@@ -42,6 +42,12 @@ const App: React.FC = () => {
         } else {
           return showSolver();
         }
+      } else if (event.key === "Enter") {
+        if (!showDialogWindow && !showSolveWindow) {
+          event.preventDefault();
+          event.stopPropagation();
+          return showSolver();
+        }
       }
     };
     window.addEventListener("keydown", toggleOnKey);
