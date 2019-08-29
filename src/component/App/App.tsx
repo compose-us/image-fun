@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import FullscreenGrid from "../FullscreenGrid";
 import Solver from "../Solver";
 import pairGenerator from "../../lib/pair-generator/pair-generator";
@@ -8,13 +8,13 @@ import Dialog from "../Dialog";
 import Hint from "../Hint";
 
 const App: React.FC = () => {
-  const [showSolve, setShowSolve] = useState(false);
+  const [showSolveWindow, setShowSolveWindow] = useState(false);
   const [showDialogWindow, setShowDialogWindow] = useState(false);
   const [showHintWindow, setShowHintWindow] = useState(false);
   const [solved, setSolved] = useState(false);
   const [pair, setPair] = useState(() => pairGenerator());
-  const showSolver = useCallback(() => setShowSolve(true), []);
-  const hideSolver = useCallback(() => setShowSolve(false), []);
+  const showSolver = useCallback(() => setShowSolveWindow(true), []);
+  const hideSolver = useCallback(() => setShowSolveWindow(false), []);
   const showDialog = useCallback(() => {
     setShowDialogWindow(true);
   }, []);
@@ -23,21 +23,43 @@ const App: React.FC = () => {
   }, []);
   const reset = () => {
     setShowDialogWindow(false);
-    setShowSolve(false);
+    setShowSolveWindow(false);
     setSolved(false);
     setPair(pairGenerator());
   };
   const hideHint = useCallback(() => setShowHintWindow(false), []);
   const showHint = useCallback(() => setShowHintWindow(true), []);
 
+  useEffect(() => {
+    const toggleOnKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        event.stopPropagation();
+        if (showDialogWindow) {
+          return hideDialog();
+        } else if (showSolveWindow) {
+          return hideSolver();
+        } else {
+          return showSolver();
+        }
+      }
+    };
+    window.addEventListener("keydown", toggleOnKey);
+    return () => window.removeEventListener("keydown", toggleOnKey);
+  });
+
   return (
     <div
-      className={`${style.app} ${showSolve ? style.solving : style.general} ${
-        solved ? style.solved : ""
-      }`}
+      className={`${style.app} ${
+        showSolveWindow ? style.solving : style.general
+      } ${solved ? style.solved : ""}`}
     >
-      <FullscreenGrid onClick={showSolver} solving={showSolve} words={pair} />
-      {showSolve && (
+      <FullscreenGrid
+        onClick={showSolver}
+        solving={showSolveWindow}
+        words={pair}
+      />
+      {showSolveWindow && (
         <Solver
           hide={hideSolver}
           solve={() => {
