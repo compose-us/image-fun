@@ -48,6 +48,12 @@ const App: React.FC = () => {
           event.stopPropagation();
           return showSolver();
         }
+      } else if (event.key === "h") {
+        if (!showDialogWindow && !showSolveWindow) {
+          event.preventDefault();
+          event.stopPropagation();
+          return showHint();
+        }
       }
     };
     window.addEventListener("keydown", toggleOnKey);
