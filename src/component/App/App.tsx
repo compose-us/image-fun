@@ -39,6 +39,8 @@ const App: React.FC = () => {
           return hideDialog();
         } else if (showSolveWindow) {
           return hideSolver();
+        } else if (showHintWindow) {
+          return hideHint();
         } else {
           return showSolver();
         }
