@@ -37,10 +37,10 @@ const App: React.FC = () => {
         event.stopPropagation();
         if (showDialogWindow) {
           return hideDialog();
-        } else if (showSolveWindow) {
-          return hideSolver();
         } else if (showHintWindow) {
           return hideHint();
+        } else if (showSolveWindow) {
+          return hideSolver();
         } else {
           return showSolver();
         }
