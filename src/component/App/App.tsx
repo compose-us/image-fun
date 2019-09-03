@@ -56,6 +56,12 @@ const App: React.FC = () => {
           event.stopPropagation();
           return showHint();
         }
+      } else if (event.key === "r") {
+        if (!showDialogWindow && !showSolveWindow && !showHintWindow) {
+          event.preventDefault();
+          event.stopPropagation();
+          return reset();
+        }
       }
     };
     window.addEventListener("keydown", toggleOnKey);
