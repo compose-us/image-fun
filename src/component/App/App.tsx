@@ -54,7 +54,7 @@ const App: React.FC = () => {
         if (!showDialogWindow && !showSolveWindow) {
           event.preventDefault();
           event.stopPropagation();
-          return showHint();
+          return showHintWindow ? hideHint() : showHint();
         }
       } else if (event.key === "r") {
         if (!showDialogWindow && !showSolveWindow && !showHintWindow) {
