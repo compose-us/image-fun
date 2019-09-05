@@ -24,7 +24,8 @@ const Solver: React.FC<SolverProps> = ({
   };
   const verifySolution = () => {
     const split =
-      solutionElement.current && solutionElement.current.value.split(/\s+/);
+      solutionElement.current &&
+      solutionElement.current.value.trim().split(/\s+/);
     const correct = split && split[0] === first && split[1] === second;
     if (correct) {
       solve();
