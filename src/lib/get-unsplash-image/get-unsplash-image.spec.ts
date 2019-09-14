@@ -18,12 +18,17 @@ describe("get-unsplash-image", () => {
   });
 
   it("uses uuid", () => {
-    const uuidRe = /[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/;
-    const url = getUnsplashImage({ height: 123, width: 456, keyword: "test" })
+    const url1 = getUnsplashImage({ height: 123, width: 456, keyword: "test" })
       .url;
-    const expected = "https://source.unsplash.com/random/456x123?test";
+    const url2 = getUnsplashImage({ height: 123, width: 456, keyword: "test" })
+      .url;
 
-    expect(url.indexOf(expected)).toBe(0);
-    expect(uuidRe.test(url)).toBe(true);
+    const uuidRe = /[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/;
+    const expectedStart = "https://source.unsplash.com/random/456x123?test";
+    expect(url1.indexOf(expectedStart)).toBe(0);
+    expect(url2.indexOf(expectedStart)).toBe(0);
+    expect(uuidRe.test(url1)).toBe(true);
+    expect(uuidRe.test(url2)).toBe(true);
+    expect(url1).not.toEqual(url2);
   });
 });
