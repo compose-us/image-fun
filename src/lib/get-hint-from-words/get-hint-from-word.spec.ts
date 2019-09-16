@@ -20,14 +20,12 @@ describe("getHintFromWord", () => {
   });
 
   it("distributes the dots throughout the word", () => {
-    const word = "hello";
+    const word = "thisisalongerword";
     const maxChars = Math.floor(word.length / 3);
     const hintChars = getHintFromWord(word, maxChars).split("");
-    expect(hintChars.filter(w => w !== ".").length).toBeLessThanOrEqual(
-      maxChars
-    );
-    expect(hintChars.filter(w => w === ".").length).toBeGreaterThanOrEqual(
-      word.length - maxChars
-    );
+    const amountOfHintChars = hintChars.filter(w => w !== ".").length;
+    const amountOfHiddenChars = hintChars.filter(w => w === ".").length;
+    expect(amountOfHintChars).toBe(maxChars);
+    expect(amountOfHiddenChars).toBe(word.length - maxChars);
   });
 });
