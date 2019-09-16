@@ -9,4 +9,19 @@ describe("getHintFromWords", () => {
       true
     );
   });
+
+  it("should select one of the two words as hint", () => {
+    const first = "first";
+    const second = "second";
+    const firstResult = getHintFromWords(first, second);
+    for (let i = 0; i < 100; i++) {
+      const secondResult = getHintFromWords(first, second);
+      if (firstResult.length !== secondResult.length) return;
+    }
+    // if it did not find another value within 100 tries, this will probably
+    // fail as well...
+    expect(getHintFromWords(first, second).length).not.toEqual(
+      firstResult.length
+    );
+  });
 });
