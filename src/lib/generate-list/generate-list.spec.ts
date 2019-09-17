@@ -49,4 +49,28 @@ describe("generate-list", () => {
       );
     }
   });
+
+  it("creates randomly generated lists", () => {
+    const num = 9;
+    const words = ["hello", "world", "stuff", "pow"];
+    let lastRun = generateList(words, num);
+    let result;
+    for (let i = 0; i < 100; i++) {
+      result = generateList(words, num);
+      if (!equals(lastRun, result)) {
+        return;
+      }
+      lastRun = result;
+    }
+    expect(result).not.toEqual(lastRun);
+
+    function equals<T>(a: T[], b: T[]): boolean {
+      try {
+        expect(a).toEqual(b);
+        return true;
+      } catch (e) {
+        return false;
+      }
+    }
+  });
 });
