@@ -19,6 +19,22 @@ describe("getHintFromWord", () => {
     expect(hint.length).toBe(word.length);
   });
 
+  it("uses a sensible default value for amountOfHintChars", () => {
+    checkAmountOfHintChars("i", 0);
+    checkAmountOfHintChars("my", 0);
+    checkAmountOfHintChars("the", 1);
+    checkAmountOfHintChars("word", 1);
+    checkAmountOfHintChars("lists", 1);
+    checkAmountOfHintChars("having", 2);
+    checkAmountOfHintChars("verylongword", 4);
+
+    function checkAmountOfHintChars(word: string, expectedAmount: number) {
+      const hintChars = getHintFromWord(word).split("");
+      const amountOfHintChars = hintChars.filter(w => w !== ".").length;
+      expect(amountOfHintChars).toBe(expectedAmount);
+    }
+  });
+
   it("distributes the dots throughout the word", () => {
     const word = "thisisalongerword";
     const maxChars = Math.floor(word.length / 3);
