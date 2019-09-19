@@ -22,10 +22,27 @@ describe("getHintFromWord", () => {
   it("distributes the dots throughout the word", () => {
     const word = "thisisalongerword";
     const maxChars = Math.floor(word.length / 3);
-    const hintChars = getHintFromWord(word, maxChars).split("");
-    const amountOfHintChars = hintChars.filter(w => w !== ".").length;
-    const amountOfHiddenChars = hintChars.filter(w => w === ".").length;
-    expect(amountOfHintChars).toBe(maxChars);
-    expect(amountOfHiddenChars).toBe(word.length - maxChars);
+    for (let i = 0; i < 100; i++) {
+      const hintChars = getHintFromWord(word, maxChars).split("");
+      const amountOfHintChars = hintChars.filter(w => w !== ".").length;
+      const amountOfHiddenChars = hintChars.filter(w => w === ".").length;
+      expect(amountOfHintChars).toBe(maxChars);
+      expect(amountOfHiddenChars).toBe(word.length - maxChars);
+    }
+  });
+
+  it("generates random hints", () => {
+    const word = "thisisalongerword";
+    const maxChars = Math.floor(word.length / 3);
+    let lastRun = getHintFromWord(word, maxChars);
+    let result: string = "";
+    for (let i = 0; i < 100; i++) {
+      result = getHintFromWord(word, maxChars);
+      if (lastRun !== result) {
+        return;
+      }
+      lastRun = result;
+    }
+    expect(result).not.toEqual(lastRun);
   });
 });
