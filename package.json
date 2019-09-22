@@ -14,7 +14,9 @@
     "build": "react-scripts build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "test": "react-scripts test",
+    "test": "npm run test:mutations && npm run test:unit -- --coverage",
+    "test:coverage": "npm run test:unit -- --coverage",
+    "test:unit": "react-scripts test",
     "test:mutations": "stryker run",
     "eject": "react-scripts eject"
   },
