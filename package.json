@@ -4,9 +4,9 @@
   "private": true,
   "homepage": "https://compose-us-research.github.io/image-fun",
   "dependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "3.1.2",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-scripts": "^3.2.0",
     "uuid": "^3.3.3"
   },
   "scripts": {
@@ -40,12 +40,12 @@
     "@stryker-mutator/html-reporter": "^2.1.0",
     "@stryker-mutator/jest-runner": "^2.1.0",
     "@stryker-mutator/typescript": "^2.1.0",
-    "@types/jest": "24.0.18",
-    "@types/node": "^12.7.5",
-    "@types/react": "^16.9.2",
-    "@types/react-dom": "16.9.0",
+    "@types/jest": "^24.0.19",
+    "@types/node": "^12.11.5",
+    "@types/react": "^16.9.9",
+    "@types/react-dom": "^16.9.2",
     "@types/uuid": "^3.4.5",
     "gh-pages": "^2.1.1",
-    "typescript": "3.6.3"
+    "typescript": "^3.6.4"
   }
 }
