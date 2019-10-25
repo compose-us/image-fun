@@ -12,10 +12,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "cypress:open": "cypress open",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "test": "npm run test:mutations && npm run test:coverage",
     "test:coverage": "CI=true npm run test:unit -- --coverage",
+    "test:cypress": "start-server-and-test 'npm run start' 'http://localhost:3000' 'cypress run'",
     "test:unit": "react-scripts test",
     "test:mutations": "stryker run",
     "eject": "react-scripts eject"
@@ -45,7 +47,9 @@
     "@types/react": "^16.9.9",
     "@types/react-dom": "^16.9.2",
     "@types/uuid": "^3.4.5",
+    "cypress": "^3.5.0",
     "gh-pages": "^2.1.1",
+    "start-server-and-test": "^1.10.6",
     "typescript": "^3.6.4"
   }
 }
