@@ -6,3 +6,5 @@ USER node
 
 WORKDIR /app
 
+ENV PORT 3000
+EXPOSE 3000

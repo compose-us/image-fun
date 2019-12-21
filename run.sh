@@ -13,7 +13,10 @@ fi
 
 docker run \
     --rm \
-    -t \
+    -it \
     --name ${CONTAINER_NAME} \
     --volume $(pwd):/app:cached \
-    ${IMAGE_NAME} $1
+    -w /app \
+    -p 3000:3000 \
+    -u node \
+    ${IMAGE_NAME} "$@"
