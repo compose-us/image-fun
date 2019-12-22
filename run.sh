@@ -2,21 +2,13 @@
 
 set -e
 
-DOCKERFILE_HASH=$(md5 -q ./Dockerfile)
+DOCKERFILE_HASH=$(md5 -q <(echo $(md5 -q ./Dockerfile) $(md5 -q ./docker-compose.yml)))
 CONTAINER_NAME=image-fun
 IMAGE_NAME=${CONTAINER_NAME}:${DOCKERFILE_HASH}
 
-if [[ $(docker inspect --format . ${IMAGE_NAME} 2>&1) != "." ]]; then
+if ! docker inspect ${IMAGE_NAME} > /dev/null; then
   echo "--- BUILDING image '${IMAGE_NAME}'---"
-  docker build -t ${IMAGE_NAME} -f Dockerfile .
+  IMAGE_TAG="${DOCKERFILE_HASH}" docker-compose build
 fi
 
-docker run \
-    --rm \
-    -it \
-    --name ${CONTAINER_NAME} \
-    --volume $(pwd):/app:cached \
-    -w /app \
-    -p 3000:3000 \
-    -u node \
-    ${IMAGE_NAME} "$@"
+docker-compose run --rm --service-ports "${CONTAINER_NAME}" $@

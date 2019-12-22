@@ -1,0 +1,10 @@
+version: '3'
+services:
+  web:
+    build: .
+    image: "image-fun:${IMAGE_TAG:?err}"
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app:delegated
+    command: npm start
