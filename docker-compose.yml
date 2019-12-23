@@ -1,6 +1,6 @@
 version: '3'
 services:
-  web:
+  image-fun:
     build: .
     image: "image-fun:${IMAGE_TAG:?err}"
     ports:

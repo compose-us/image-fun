@@ -11,4 +11,4 @@ if ! docker inspect ${IMAGE_NAME} > /dev/null; then
   IMAGE_TAG="${DOCKERFILE_HASH}" docker-compose build
 fi
 
-docker-compose run --rm --service-ports "${CONTAINER_NAME}" $@
+IMAGE_TAG="${DOCKERFILE_HASH}" docker-compose run --rm --service-ports "${CONTAINER_NAME}" $@
