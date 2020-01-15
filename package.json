@@ -38,17 +38,17 @@
     ]
   },
   "devDependencies": {
-    "@stryker-mutator/core": "^2.4.0",
-    "@stryker-mutator/html-reporter": "^2.4.0",
-    "@stryker-mutator/jest-runner": "^2.4.0",
-    "@stryker-mutator/typescript": "^2.4.0",
+    "@stryker-mutator/core": "^2.5.0",
+    "@stryker-mutator/html-reporter": "^2.5.0",
+    "@stryker-mutator/jest-runner": "^2.5.0",
+    "@stryker-mutator/typescript": "^2.5.0",
     "@types/jest": "^24.0.25",
     "@types/node": "^13.1.1",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
     "@types/uuid": "^3.4.6",
     "cypress": "^3.8.1",
-    "gh-pages": "^2.1.1",
+    "gh-pages": "^2.2.0",
     "start-server-and-test": "^1.10.6",
     "typescript": "^3.7.4"
   }
