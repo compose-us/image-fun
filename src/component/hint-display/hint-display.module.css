@@ -1,0 +1,9 @@
+.input {
+  padding: 8px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 660;
+  border-bottom: 1px solid #ccc;
+  width: 25px;
+  text-align: center;
+}
