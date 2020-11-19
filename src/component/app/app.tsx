@@ -1,11 +1,11 @@
 import React, { useState, useCallback, useEffect } from "react";
-import FullscreenGrid from "../FullscreenGrid";
-import Solver from "../Solver";
+import FullscreenGrid from "../fullscreen-grid";
+import Solver from "../solver";
 import pairGenerator from "../../lib/pair-generator/pair-generator";
 
-import style from "./App.module.css";
-import Dialog from "../Dialog";
-import Hint from "../Hint";
+import style from "./app.module.css";
+import Dialog from "../dialog";
+import Hint from "../hint";
 
 const App: React.FC = () => {
   const [showSolveWindow, setShowSolveWindow] = useState(false);

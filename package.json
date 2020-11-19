@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://compose-us-research.github.io/image-fun",
   "dependencies": {
-    "react": "^16.12.0",
+    "react": "^16.14.0",
     "react-dom": "^16.12.0",
     "react-scripts": "^3.4.0",
     "uuid": "^3.4.0"

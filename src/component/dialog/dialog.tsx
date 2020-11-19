@@ -1,6 +1,6 @@
 import React from "react";
 
-import style from "./Dialog.module.css";
+import style from "./dialog.module.css";
 
 interface DialogProps {
   title: string;
@@ -13,7 +13,7 @@ const Dialog: React.FC<DialogProps> = ({ close, message, title }) => {
     <div className={style.root} onClick={close}>
       <div className={style.content}>
         <h2>{title}</h2>
-        <div>{message}</div>
+        <h4>{message}</h4>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 
 import getHintFromWords from "../../lib/get-hint-from-words";
-import Dialog from "../Dialog";
+import Dialog from "../dialog";
 
 interface HintProps {
   words: [string, string];
@@ -11,11 +11,7 @@ interface HintProps {
 const Hint: React.FC<HintProps> = ({ hide, words: [first, second] }) => {
   const hint = useMemo(() => getHintFromWords(first, second), [first, second]);
   return (
-    <Dialog
-      close={hide}
-      title="Here is a hint for you"
-      message={`It has something to do with ${hint}`}
-    />
+    <Dialog close={hide} title="It has something to do with" message={hint} />
   );
 };
 

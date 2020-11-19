@@ -1,6 +1,6 @@
 import React, { useRef, FormEvent, useLayoutEffect } from "react";
 
-import style from "./Solver.module.css";
+import style from "./solver.module.css";
 
 interface SolverProps {
   words: [string, string];
@@ -15,7 +15,7 @@ const Solver: React.FC<SolverProps> = ({
   solve,
   solved = false,
   words: [first, second],
-  wrong
+  wrong,
 }) => {
   const solutionElement = useRef<HTMLInputElement>(null);
   const onSubmit = (event: FormEvent) => {
@@ -51,7 +51,7 @@ const Solver: React.FC<SolverProps> = ({
               // Submitting with 'enter' causes a click on the submit button,
               // which propagates up to the `hide` onClick listener. We prevent
               // this with the `stopPropagation` call on click.
-              onClick={e => e.stopPropagation()}
+              onClick={(e) => e.stopPropagation()}
               type="submit"
             >
               {solved ? "Solved!" : "Solve!"}

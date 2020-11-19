@@ -2,9 +2,9 @@ import React, { useMemo } from "react";
 import generateList from "../../lib/generate-list/generate-list";
 import getUnsplashImage from "../../lib/get-unsplash-image/get-unsplash-image";
 import useWindowSize from "../../hook/use-window-size";
-import Image from "../Image";
+import Image from "../image";
 
-import style from "./FullscreenGrid.module.css";
+import style from "./fullscreen-grid.module.css";
 
 interface FullscreenGridProps {
   onClick: () => void;
@@ -15,7 +15,7 @@ interface FullscreenGridProps {
 const FullscreenGrid: React.FC<FullscreenGridProps> = ({
   onClick,
   solving = false,
-  words
+  words,
 }) => {
   const [height, width] = useWindowSize();
   const sizeX = Math.ceil(width / 6);
@@ -23,11 +23,11 @@ const FullscreenGrid: React.FC<FullscreenGridProps> = ({
 
   const images = useMemo(() => {
     const keywordList = generateList(words, 6 * 6);
-    return keywordList.map(keyword =>
+    return keywordList.map((keyword) =>
       getUnsplashImage({
         height: sizeY,
         keyword: keyword,
-        width: sizeX
+        width: sizeX,
       })
     );
   }, [sizeX, sizeY, words]);
@@ -44,7 +44,7 @@ const FullscreenGrid: React.FC<FullscreenGridProps> = ({
         overflow: "hidden",
         position: "absolute",
         width: "100%",
-        height: "100%"
+        height: "100%",
       }}
     >
       {images.map((image, index) => (
