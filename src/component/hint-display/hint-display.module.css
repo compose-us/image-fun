@@ -1,5 +1,11 @@
+.word {
+  border: thin solid red;
+  margin: 0 10px;
+}
+
 .input {
   padding: 8px;
+  margin: 2px;
   border: none;
   font-size: 1rem;
   font-weight: 660;

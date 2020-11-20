@@ -3,11 +3,11 @@ import FullscreenGrid from "../fullscreen-grid";
 import Solver from "../solver";
 import pairGenerator from "../../lib/pair-generator/pair-generator";
 
-import style from "./app.module.css";
+import style from "./game.module.css";
 import Dialog from "../dialog";
 import Hint from "../hint";
 
-const App: React.FC = () => {
+const Game: React.FC = () => {
   const [showSolveWindow, setShowSolveWindow] = useState(false);
   const [showDialogWindow, setShowDialogWindow] = useState(false);
   const [showHintWindow, setShowHintWindow] = useState(false);
@@ -116,4 +116,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default Game;

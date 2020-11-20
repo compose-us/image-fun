@@ -6,7 +6,7 @@ interface HintDisplayProps {
 }
 
 const HintDisplay: React.FC<HintDisplayProps> = ({ secrets }) => (
-  <div>
+  <div style={{ display: "flex" }}>
     {secrets.map((secret) => (
       <HintDisplayWord word={secret} />
     ))}
@@ -20,9 +20,14 @@ interface HintDisplayWordProps {
 const HintDisplayWord: React.FC<HintDisplayWordProps> = ({ word }) => {
   const letters: string[] = word.split("");
   return (
-    <div>
+    <div className={styles.word}>
       {letters.map((letter) => (
-        <input type="text" value={letter} className={styles.input} />
+        <input
+          type="text"
+          value={letter}
+          className={styles.input}
+          disabled={letter === "*"}
+        />
       ))}
     </div>
   );
