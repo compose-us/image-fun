@@ -20,7 +20,7 @@ interface HintDisplayWordProps {
 const HintDisplayWord: React.FC<HintDisplayWordProps> = ({ word }) => {
   const letters: string[] = word.split("");
   return (
-    <div className={styles.word}>
+    <div className={styles.root}>
       {letters.map((letter) => (
         <input
           type="text"
