@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Game from "../game";
+import Splash from "../splash/splash";
 
 const AppSwitch = () => (
   <main>
@@ -12,7 +13,7 @@ const AppSwitch = () => (
         <Game />
       </Route>
       <Route path="/">
-        <h1>default route</h1>
+        <Splash />
       </Route>
     </Switch>
   </main>

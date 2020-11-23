@@ -1,0 +1,29 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  width: 60vw;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+}
+
+.actions {
+  margin: 3.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer {
+  padding: 0.45rem;
+  color: #cccccc;
+  background-color: #303030;
+}
