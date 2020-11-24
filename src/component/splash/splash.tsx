@@ -6,9 +6,9 @@ import getUnsplashImage from "../../lib/get-unsplash-image";
 
 const Splash = () => {
   const backgroundImage = getUnsplashImage({
+    width: 980,
     height: 1020,
     keyword: "background",
-    width: 980,
   });
   return (
     <div
@@ -19,7 +19,7 @@ const Splash = () => {
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
       }}
-    >
+    >-
       <div>
         <div className={styles.card}>
           <img src={logo} alt="Image Fun" />
