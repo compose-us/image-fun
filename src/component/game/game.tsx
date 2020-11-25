@@ -1,35 +1,19 @@
-import React, { useState, useCallback, useEffect } from "react";
-import FullscreenGrid from "../fullscreen-grid";
-import Solver from "../solver";
-import pairGenerator from "../../lib/pair-generator/pair-generator";
-
+import React, { useCallback, useState } from "react";
+// import FullscreenGrid from "../fullscreen-grid";
+// import Solver from "../solver";
+// import pairGenerator from "../../lib/pair-generator/pair-generator";
 import style from "./game.module.css";
-import Dialog from "../dialog";
-import Hint from "../hint";
+import GameHintWindow from "../game-hint-window";
+// import Dialog from "../dialog";
+// import Hint from "../hint";
+// import GameHintWindow from "../game-hint-window";
 
 const Game: React.FC = () => {
-  const [showSolveWindow, setShowSolveWindow] = useState(false);
-  const [showDialogWindow, setShowDialogWindow] = useState(false);
-  const [showHintWindow, setShowHintWindow] = useState(false);
   const [solved, setSolved] = useState(false);
-  const [pair, setPair] = useState(() => pairGenerator());
-  const showSolver = useCallback(() => setShowSolveWindow(true), []);
-  const hideSolver = useCallback(() => setShowSolveWindow(false), []);
-  const showDialog = useCallback(() => {
-    setShowDialogWindow(true);
-  }, []);
-  const hideDialog = useCallback(() => {
-    setShowDialogWindow(false);
-  }, []);
-  const reset = () => {
-    setShowDialogWindow(false);
-    setShowSolveWindow(false);
-    setSolved(false);
-    setPair(pairGenerator());
-  };
+
+  /*
   const hideHint = useCallback(() => setShowHintWindow(false), []);
   const showHint = useCallback(() => setShowHintWindow(true), []);
-
   useEffect(() => {
     const toggleOnKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -67,51 +51,43 @@ const Game: React.FC = () => {
     window.addEventListener("keydown", toggleOnKey);
     return () => window.removeEventListener("keydown", toggleOnKey);
   });
-
+*/
   return (
-    <div
-      className={`${style.app} ${
-        showSolveWindow ? style.solving : style.general
-      } ${solved ? style.solved : ""}`}
-    >
-      <FullscreenGrid
-        onClick={showSolver}
-        solving={showSolveWindow}
-        words={pair}
-      />
-      {showSolveWindow && (
-        <Solver
-          hide={hideSolver}
-          solve={() => {
-            setSolved(true);
-            showDialog();
-          }}
-          solved={solved}
-          wrong={() => {
-            setSolved(false);
-            showDialog();
-          }}
-          words={pair}
-        />
-      )}
-      <button className={style.restart} type="button" onClick={reset}>
-        Restart
-      </button>
-      <button className={style.hint} type="button" onClick={showHint}>
-        Hint
-      </button>
-      {showHintWindow && <Hint hide={hideHint} words={pair} />}
-      {showDialogWindow && (
-        <Dialog
-          close={hideDialog}
-          title={solved ? "Yesss!" : "Nope..."}
-          message={
-            solved
-              ? "You solved this puzzle!"
-              : "Sorry, this is not the correct thing"
-          }
-        />
-      )}
+    <div>
+      working on it
+      {/*<FullscreenGrid*/}
+      {/*  onClick={showSolver}*/}
+      {/*  solving={showSolveWindow}*/}
+      {/*  words={pair}*/}
+      {/*/>*/}
+      {/*{showSolveWindow && (*/}
+      {/*  <Solver*/}
+      {/*    hide={hideSolver}*/}
+      {/*    solve={() => {*/}
+      {/*      setSolved(true);*/}
+      {/*      showDialog();*/}
+      {/*    }}*/}
+      {/*    solved={solved}*/}
+      {/*    wrong={() => {*/}
+      {/*      setSolved(false);*/}
+      {/*      showDialog();*/}
+      {/*    }}*/}
+      {/*    words={pair}*/}
+      {/*  />*/}
+      {/*)}*/}
+      <GameHintWindow />
+      {/*{showHintWindow && <Hint hide={hideHint} words={pair} />}*/}
+      {/*{showDialogWindow && (*/}
+      {/*  <Dialog*/}
+      {/*    close={hideDialog}*/}
+      {/*    title={solved ? "Yesss!" : "Nope..."}*/}
+      {/*    message={*/}
+      {/*      solved*/}
+      {/*        ? "You solved this puzzle!"*/}
+      {/*        : "Sorry, this is not the correct thing"*/}
+      {/*    }*/}
+      {/*  />*/}
+      {/*)}*/}
     </div>
   );
 };

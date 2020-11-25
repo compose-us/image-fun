@@ -4,16 +4,19 @@ import getHintFromWords from "../../lib/get-hint-from-words";
 import Dialog from "../dialog";
 import HintDisplay from "../hint-display/hint-display";
 
-interface HintProps {
+export interface HintProps {
   words: [string, string];
-  hide: () => void;
+  onClose: () => void;
 }
 
-const Hint: React.FC<HintProps> = ({ hide, words: [first, second] }) => {
+const Hint: React.FC<HintProps> = ({
+  onClose: callback,
+  words: [first, second],
+}) => {
   const hint = useMemo(() => getHintFromWords(first, second), [first, second]);
   return (
     <Dialog
-      close={hide}
+      close={callback}
       title="It has something to do with"
       message={<HintDisplay secrets={hint} />}
     />
