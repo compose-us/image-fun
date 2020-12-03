@@ -8,7 +8,7 @@ interface CompoundWordDisplayProps {
 const CompoundWordDisplay: React.FC<CompoundWordDisplayProps> = ({ word }) => {
   const letters: string[] = word.split("");
   return (
-    <div className={styles.root}>
+      <div className={styles.root}>
       {letters.map((letter) => (
         <input
           type="text"

@@ -1,5 +1,6 @@
 import React from "react";
 import CompoundWordDisplay from "../compound-word-display/compound-word-display";
+import CompoundWordInput from "../compound-word-input/compound-word-input";
 
 interface SolutionDisplayProps {
   solution: string[];
@@ -7,9 +8,9 @@ interface SolutionDisplayProps {
 const SolutionDisplay: React.FC<SolutionDisplayProps> = ({ solution }) => (
   <React.Fragment>
     <div style={{ display: "flex" }}>
-      {solution.map((word) => (
-        <CompoundWordDisplay word={word} />
-      ))}
+      <CompoundWordInput word={solution[0]} />
+      &nbsp;
+      <CompoundWordInput word={solution[1]} />
     </div>
     <button>Solve</button>
   </React.Fragment>
