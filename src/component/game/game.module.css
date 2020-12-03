@@ -1,16 +1,3 @@
-:root {
-  --color-palette-black: #000;
-  --color-palette-white: #fff;
-  --color-palette-green: #0f0;
-
-  --button-color: var(--color-palette-black);
-  --button-text-color: var(--color-palette-white);
-
-  --animation-party: party 5s linear infinite;
-
-  --animate-when-solved: none;
-}
-
 .solved {
   --animate-when-solved: var(--animation-party);
 }

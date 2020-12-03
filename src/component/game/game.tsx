@@ -3,13 +3,13 @@ import React, { useCallback, useState } from "react";
 // import Solver from "../solver";
 // import pairGenerator from "../../lib/pair-generator/pair-generator";
 import style from "./game.module.css";
-import GameHintWindow from "../game-hint-window/game-hint-window";
-import GameResetWindow from "../game-reset-window/game-reset-window";
+import HintWindow from "../hint-window/hint-window";
+import ResetWindow from "../reset-window/reset-window";
 import { useGameState } from "../../context/game-state-context";
-import GameSolverWindow from "../game-solver-window/game-solver-window";
+import SolutionWindow from "../solution-window/solution-window";
 // import Dialog from "../dialog";
 // import Hint from "../hint";
-// import GameHintWindow from "../game-hint-window";
+// import HintWindow from "../hint-window";
 
 const Game: React.FC = () => {
   const { compoundWord } = useGameState();
@@ -79,9 +79,9 @@ const Game: React.FC = () => {
       {/*  />*/}
       {/*)}*/}
       <h1>{JSON.stringify({ compoundWord })}</h1>
-      <GameHintWindow />
-      <GameResetWindow />
-      <GameSolverWindow />
+      <HintWindow />
+      <ResetWindow />
+      <SolutionWindow />
       {/*{showHintWindow && <Hint hide={hideHint} words={pair} />}*/}
       {/*{showDialogWindow && (*/}
       {/*  <Dialog*/}
