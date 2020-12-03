@@ -18,7 +18,7 @@ const defaultErrorMessage = `Error: Context not initialized ${Date.now()}`;
 
 const defaultValues: GameStateContextApi = {
   showHint: false,
-  showSolver: false,
+  showSolver: true,
   compoundWord: pairGenerator(),
   toggleHint: () => {
     throw Error(defaultErrorMessage);
