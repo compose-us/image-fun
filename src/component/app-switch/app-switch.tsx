@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Game from "../game";
+import Game from "../game/game";
 import Splash from "../splash/splash";
 
 const AppSwitch = () => (

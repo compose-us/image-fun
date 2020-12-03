@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import Dialog from "../dialog";
+import Dialog from "../dialog/dialog";
 import HintDisplay from "../hint-display/hint-display";
 import getHintFromWords from "../../lib/get-hint-from-words";
 

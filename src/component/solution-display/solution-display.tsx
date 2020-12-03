@@ -1,5 +1,4 @@
 import React from "react";
-import CompoundWordDisplay from "../compound-word-display/compound-word-display";
 import CompoundWordInput from "../compound-word-input/compound-word-input";
 
 interface SolutionDisplayProps {

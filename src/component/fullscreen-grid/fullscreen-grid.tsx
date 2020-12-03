@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import generateList from "../../lib/generate-list/generate-list";
 import getUnsplashImage from "../../lib/get-unsplash-image/get-unsplash-image";
 import useWindowSize from "../../hook/use-window-size";
-import Image from "../image";
+import Image from "../image/image";
 
 import style from "./fullscreen-grid.module.css";
 

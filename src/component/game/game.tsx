@@ -1,99 +1,49 @@
-import React, { useCallback, useState } from "react";
-// import FullscreenGrid from "../fullscreen-grid";
-// import Solver from "../solver";
-// import pairGenerator from "../../lib/pair-generator/pair-generator";
-import style from "./game.module.css";
+import React, { useMemo } from "react";
+import { useGameState } from "../../context/game-state-context";
 import HintWindow from "../hint-window/hint-window";
 import ResetWindow from "../reset-window/reset-window";
-import { useGameState } from "../../context/game-state-context";
 import SolutionWindow from "../solution-window/solution-window";
-// import Dialog from "../dialog";
-// import Hint from "../hint";
-// import HintWindow from "../hint-window";
+import useWindowSize from "../../hook/use-window-size";
+import getUnsplashImage from "../../lib/get-unsplash-image";
+import Image from "../image/image";
 
 const Game: React.FC = () => {
   const { compoundWord } = useGameState();
-  const [solved, setSolved] = useState(false);
 
-  /*
-  const hideHint = useCallback(() => setShowHintWindow(false), []);
-  const showHint = useCallback(() => setShowHintWindow(true), []);
-  useEffect(() => {
-    const toggleOnKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        event.preventDefault();
-        event.stopPropagation();
-        if (showDialogWindow) {
-          return hideDialog();
-        } else if (showHintWindow) {
-          return hideHint();
-        } else if (showSolveWindow) {
-          return hideSolver();
-        } else {
-          return showSolver();
-        }
-      } else if (event.key === "Enter") {
-        if (!showDialogWindow && !showSolveWindow) {
-          event.preventDefault();
-          event.stopPropagation();
-          return showSolver();
-        }
-      } else if (event.key === "h") {
-        if (!showDialogWindow && !showSolveWindow) {
-          event.preventDefault();
-          event.stopPropagation();
-          return showHintWindow ? hideHint() : showHint();
-        }
-      } else if (event.key === "r") {
-        if (!showDialogWindow && !showSolveWindow && !showHintWindow) {
-          event.preventDefault();
-          event.stopPropagation();
-          return reset();
-        }
-      }
-    };
-    window.addEventListener("keydown", toggleOnKey);
-    return () => window.removeEventListener("keydown", toggleOnKey);
-  });
-*/
+  const [height, width] = useWindowSize();
+  const sizeX = Math.ceil(width / 2);
+  const sizeY = Math.ceil(height / 2);
+  const images = useMemo(() => {
+    return compoundWord.map((keyword) =>
+      getUnsplashImage({
+        height: sizeY,
+        keyword: keyword,
+        width: sizeX,
+      })
+    );
+  }, [sizeX, sizeY, compoundWord]);
+
   return (
     <React.Fragment>
-      {/*<FullscreenGrid*/}
-      {/*  onClick={showSolver}*/}
-      {/*  solving={showSolveWindow}*/}
-      {/*  words={pair}*/}
-      {/*/>*/}
-      {/*{showSolveWindow && (*/}
-      {/*  <Solver*/}
-      {/*    hide={hideSolver}*/}
-      {/*    solve={() => {*/}
-      {/*      setSolved(true);*/}
-      {/*      showDialog();*/}
-      {/*    }}*/}
-      {/*    solved={solved}*/}
-      {/*    wrong={() => {*/}
-      {/*      setSolved(false);*/}
-      {/*      showDialog();*/}
-      {/*    }}*/}
-      {/*    words={pair}*/}
-      {/*  />*/}
-      {/*)}*/}
-      <h1>{JSON.stringify({ compoundWord })}</h1>
-      <HintWindow />
-      <ResetWindow />
-      <SolutionWindow />
-      {/*{showHintWindow && <Hint hide={hideHint} words={pair} />}*/}
-      {/*{showDialogWindow && (*/}
-      {/*  <Dialog*/}
-      {/*    close={hideDialog}*/}
-      {/*    title={solved ? "Yesss!" : "Nope..."}*/}
-      {/*    message={*/}
-      {/*      solved*/}
-      {/*        ? "You solved this puzzle!"*/}
-      {/*        : "Sorry, this is not the correct thing"*/}
-      {/*    }*/}
-      {/*  />*/}
-      {/*)}*/}
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div>
+          <SolutionWindow />
+          <HintWindow />
+        </div>
+        <ResetWindow />
+      </div>
+      <div style={{ display: "flex" }}>
+        {images.map((image, index) => (
+          <Image
+            key={image.url}
+            x={index % 6}
+            y={Math.floor(index / 6)}
+            src={image.url}
+            width={image.width}
+            height={image.height}
+          />
+        ))}
+      </div>
     </React.Fragment>
   );
 };

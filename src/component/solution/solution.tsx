@@ -1,5 +1,5 @@
 import React from "react";
-import Dialog from "../dialog";
+import Dialog from "../dialog/dialog";
 import SolutionDisplay from "../solution-display/solution-display";
 
 export interface SolutionProps {
