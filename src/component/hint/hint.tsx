@@ -1,11 +1,10 @@
 import React, { useMemo } from "react";
-
-import getHintFromWords from "../../lib/get-hint-from-words";
 import Dialog from "../dialog";
 import HintDisplay from "../hint-display/hint-display";
+import getHintFromWords from "../../lib/get-hint-from-words";
 
 export interface HintProps {
-  words: [string, string];
+  words: CompoundWord;
   onClose: () => void;
 }
 

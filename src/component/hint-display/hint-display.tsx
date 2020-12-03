@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./hint-display.module.css";
+import CompoundWordDisplay from "../compound-word-display/compound-word-display";
 
 interface HintDisplayProps {
   secrets: string[];
@@ -8,29 +8,9 @@ interface HintDisplayProps {
 const HintDisplay: React.FC<HintDisplayProps> = ({ secrets }) => (
   <div style={{ display: "flex" }}>
     {secrets.map((secret) => (
-      <HintDisplayWord word={secret} />
+      <CompoundWordDisplay word={secret} />
     ))}
   </div>
 );
-
-interface HintDisplayWordProps {
-  word: string;
-}
-
-const HintDisplayWord: React.FC<HintDisplayWordProps> = ({ word }) => {
-  const letters: string[] = word.split("");
-  return (
-    <div className={styles.root}>
-      {letters.map((letter) => (
-        <input
-          type="text"
-          value={letter}
-          className={styles.input}
-          disabled={letter === "*"}
-        />
-      ))}
-    </div>
-  );
-};
 
 export default HintDisplay;
