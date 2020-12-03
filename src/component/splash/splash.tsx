@@ -19,7 +19,7 @@ const Splash = () => {
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
       }}
-    >-
+    >
       <div>
         <div className={styles.card}>
           <img src={logo} alt="Image Fun" />
