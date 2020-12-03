@@ -1,4 +1,4 @@
-const listOfPairs: [string, string][] = [
+const listOfPairs: CompoundWord[] = [
   ["bird", "cage"],
   ["birthday", "cake"],
   ["bubble", "wrap"],
@@ -32,7 +32,7 @@ const listOfPairs: [string, string][] = [
   ["traffic", "light"],
   ["travel", "guide"],
   ["tv", "channel"],
-  ["water", "cooler"]
+  ["water", "cooler"],
 ];
 
 export default listOfPairs;
