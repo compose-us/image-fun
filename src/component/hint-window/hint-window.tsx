@@ -1,8 +1,8 @@
 import React from "react";
-import Hint from "../hint";
+import Hint from "../hint/hint";
 import { useGameState } from "../../context/game-state-context";
 
-const GameHintWindow: React.FC<any> = () => {
+const HintWindow: React.FC<any> = () => {
   const { compoundWord, toggleHint, showHint } = useGameState();
 
   return (
@@ -15,4 +15,4 @@ const GameHintWindow: React.FC<any> = () => {
   );
 };
 
-export default GameHintWindow;
+export default HintWindow;
