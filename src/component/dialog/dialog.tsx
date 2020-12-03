@@ -10,7 +10,14 @@ interface DialogProps {
 
 const Dialog: React.FC<DialogProps> = ({ close, message, title }) => {
   return (
-    <div className={style.root} onClick={close}>
+    <div
+      className={style.root}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          close();
+        }
+      }}
+    >
       <div className={style.content}>
         <h2>{title}</h2>
         {typeof message === "string" ? <h4>{message}</h4> : message}
