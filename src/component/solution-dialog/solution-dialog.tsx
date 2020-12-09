@@ -6,14 +6,14 @@ export interface SolutionProps {
   solution: CompoundWord;
   onClose: () => void;
 }
-const Solution: React.FC<SolutionProps> = ({ onClose: callback, solution }) => {
+const SolutionDialog: React.FC<SolutionProps> = ({ onClose: callback, solution }) => {
   return (
     <Dialog
       close={callback}
-      title="What is the compound word?"
+      title="What's the compound word?"
       message={<SolutionDisplay solution={solution} />}
     />
   );
 };
 
-export default Solution;
+export default SolutionDialog;

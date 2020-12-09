@@ -8,7 +8,7 @@ export interface HintProps {
   onClose: () => void;
 }
 
-const Hint: React.FC<HintProps> = ({
+const HintDialog: React.FC<HintProps> = ({
   onClose: callback,
   words: [first, second],
 }) => {
@@ -16,10 +16,10 @@ const Hint: React.FC<HintProps> = ({
   return (
     <Dialog
       close={callback}
-      title="It has something to do with"
+      title="It has something to do with:"
       message={<HintDisplay secrets={hint} />}
     />
   );
 };
 
-export default Hint;
+export default HintDialog;
