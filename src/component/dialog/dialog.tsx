@@ -4,7 +4,7 @@ import style from "./dialog.module.css";
 
 interface DialogProps {
   title: string;
-  message: string | React.ReactNode;
+  message: string | React.ReactNode; // TODO: where is this being used a string?
   close: () => void;
 }
 
@@ -21,6 +21,8 @@ const Dialog: React.FC<DialogProps> = ({ close, message, title }) => {
       <div className={style.content}>
         <h2>{title}</h2>
         {typeof message === "string" ? <h4>{message}</h4> : message}
+        <br />
+        <button onClick={close}>Close</button>
       </div>
     </div>
   );

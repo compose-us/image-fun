@@ -10,12 +10,13 @@
   top: 0;
   right: 0;
   bottom: 0;
-  padding: 25px;
+  padding: 1.5rem;
 }
 
 .content {
+  text-align: center;
   animation: var(--animate-when-solved);
   background-color: var(--color-palette-black);
   box-shadow: 0 0 25px var(--color-palette-white);
-  padding: 25px;
+  padding: 1.5rem;
 }
