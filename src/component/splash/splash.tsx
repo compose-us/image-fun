@@ -1,20 +1,19 @@
 import React from "react";
 import styles from "./splash.module.css";
-import Button from "../button/button";
 import logo from "../../images/logo.png";
-import getUnsplashImage from "../../lib/get-unsplash-image";
+import Button from "../button/button";
+import Footer from "../layout/partial/footer/footer";
+import { useGameSettings } from "../../context/game-settings-context/game-settings-context";
 
-const Splash = () => {
-  const backgroundImage = getUnsplashImage({
-    width: 980,
-    height: 1020,
-    keyword: "background",
-  });
+interface SplashProps {}
+
+const Splash: React.FC<SplashProps> = () => {
+  const { backgroundImage } = useGameSettings();
   return (
     <div
       className={styles.root}
       style={{
-        backgroundImage: `url("${backgroundImage.url}")`,
+        backgroundImage: `url("${backgroundImage}")`,
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
@@ -26,10 +25,10 @@ const Splash = () => {
         </div>
         <div className={styles.actions}>
           <Button to="/game" label={"Start Game"} />
-          <Button to="/guide" label={"How to Play"} />
+          <Button to="/how-to-play" label={"How to Play"} />
         </div>
       </div>
-      <footer>developed by compose.us</footer>
+      <Footer />
     </div>
   );
 };
