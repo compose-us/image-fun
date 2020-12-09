@@ -1,6 +1,5 @@
 html,
-body,
-#root {
+body {
   height: 100%;
   width: 100%;
 }
@@ -13,7 +12,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #666666;
+  background-color: #000000;
 }
 
 code {
@@ -46,11 +45,17 @@ button:visited {
   width: 9rem;
   text-align: center;
   cursor: pointer;
+  font-size: 1rem;
 }
 
 button:hover,
 button:focus,
 button:active {
   background-color: green;
+  color: white;
+}
+
+a,
+a:visited {
   color: white;
 }

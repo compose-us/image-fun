@@ -1,4 +1,4 @@
-.root:link,
+.root,
 .root:visited {
   margin: 0.5rem;
   animation: var(--animate-when-solved);
@@ -9,9 +9,11 @@
   text-decoration: none;
   width: 9rem;
   text-align: center;
+  font-size: 1rem;
 }
 
 .root:hover,
+.root:focus,
 .root:active {
   background-color: green;
   color: white;

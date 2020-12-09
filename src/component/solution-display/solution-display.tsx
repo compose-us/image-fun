@@ -26,7 +26,10 @@ const SolutionDisplay: React.FC<SolutionDisplayProps> = ({ solution }) => {
   };
 
   const verifyInput = () => {
-    return solution.join("") === [firstWord, secondWord].join("");
+    return (
+      solution.join("").toLowerCase() ===
+      [firstWord, secondWord].join("").toLowerCase()
+    );
   };
 
   const closeValidationDialog = () => {
