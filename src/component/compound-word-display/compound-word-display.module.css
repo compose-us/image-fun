@@ -1,5 +1,6 @@
 .root {
   margin: 0 10px;
+  flex-grow: 1;
 }
 
 .input {
@@ -9,6 +10,7 @@
   font-size: 1rem;
   font-weight: 660;
   border-bottom: 1px solid #ccc;
-  width: 25px;
+  width: 1rem;
   text-align: center;
 }
+

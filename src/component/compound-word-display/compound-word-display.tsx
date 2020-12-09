@@ -11,6 +11,7 @@ const CompoundWordDisplay: React.FC<CompoundWordDisplayProps> = ({ word }) => {
       <div className={styles.root}>
       {letters.map((letter) => (
         <input
+            tabIndex={-1}
           type="text"
           value={letter}
           className={styles.input}
