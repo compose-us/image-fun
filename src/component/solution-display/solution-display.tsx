@@ -2,14 +2,14 @@ import React from "react";
 import CompoundWordInput from "../compound-word-input/compound-word-input";
 import captureInput from "../../lib/capture-input/capture-input";
 import ValidationDialog from "../validation-dialog/validation-dialog";
-import { useGameState } from "../../context/game-state-context/game-state-context";
+import { useHistory } from "react-router-dom";
 
 interface SolutionDisplayProps {
   solution: string[];
 }
 
 const SolutionDisplay: React.FC<SolutionDisplayProps> = ({ solution }) => {
-  const { toggleSolver, resetCompoundWord } = useGameState();
+  const history = useHistory();
   const [firstWord, setFirstWord] = React.useState<string>("");
   const [secondWord, setSecondWord] = React.useState<string>("");
   const [validate, setValidation] = React.useState<boolean>(false);
@@ -29,19 +29,12 @@ const SolutionDisplay: React.FC<SolutionDisplayProps> = ({ solution }) => {
     return solution.join("") === [firstWord, secondWord].join("");
   };
 
-  const resetGame = () => {
-    resetCompoundWord();
-  };
-
   const closeValidationDialog = () => {
-    setValidation(false);
-    resetGame();
-    toggleSolver();
+    history.go(0);
   };
 
   return (
     <React.Fragment>
-      <pre>{JSON.stringify(solution, null, 2)}</pre>
       <div
         style={{
           display: "flex",
