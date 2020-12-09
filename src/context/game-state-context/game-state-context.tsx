@@ -1,5 +1,5 @@
 import React from "react";
-import pairGenerator from "../lib/pair-generator";
+import pairGenerator from "../../lib/pair-generator";
 
 /** Context **/
 type GameStateContextProps = {

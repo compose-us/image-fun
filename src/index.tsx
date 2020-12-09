@@ -1,18 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./assets/style.css";
-import { GameStateProvider } from "./context/game-state-context";
+import { ContextProviders } from "./context/context-providers";
 import { BrowserRouter } from "react-router-dom";
 import AppSwitch from "./component/app-switch/app-switch";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
-    <GameStateProvider>
+    <ContextProviders>
       <BrowserRouter>
         <AppSwitch />
       </BrowserRouter>
-    </GameStateProvider>
+    </ContextProviders>
   </React.StrictMode>,
   document.getElementById("root")
 );
