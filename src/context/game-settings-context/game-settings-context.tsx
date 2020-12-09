@@ -35,11 +35,11 @@ export const GameSettingsProvider: React.FC<GameSettingsProviderProps> = ({
 
   React.useEffect(() => {
     const backgroundImage = getBackgroundImage([state.height, state.width]);
-    setState({
+    setState((state) => ({
       ...state,
       backgroundImage: backgroundImage.url,
-    });
-  }, []);
+    }));
+  }, [state.width, state.height]);
 
   return (
     <GameSettingsContext.Provider
