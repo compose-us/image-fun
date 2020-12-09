@@ -49,6 +49,7 @@ button:visited {
 }
 
 button:hover,
+button:focus,
 button:active {
   background-color: green;
   color: white;
