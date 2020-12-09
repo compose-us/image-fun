@@ -6,7 +6,12 @@ interface HintDisplayProps {
 }
 
 const HintDisplay: React.FC<HintDisplayProps> = ({ secrets }) => (
-  <div style={{ display: "flex" }}>
+  <div
+    style={{
+      display: "flex",
+      flexWrap: "wrap",
+    }}
+  >
     {secrets.map((secret) => (
       <CompoundWordDisplay word={secret} />
     ))}
