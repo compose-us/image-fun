@@ -7,10 +7,11 @@ A small puzzle game to find out words based on presented images.
 There is a [live demo](https://compose-us-research.github.io/image-fun/) of this
 game on GitHub pages.
 
-To build and run it yourself, either use [Docker](https://www.docker.com/) and
-the `run.sh` script or use `node` / `npm` directly. If you do not have Node
-installed, prepend all `node` or `npm` commands with `./run.sh` while inside
-this directory. It will use Docker to build and run all necessary commands.
+There is a `docker-compose.yml` file which opens port 3000 for the development
+server. You can use 
+[docker-box](https://github.com/compose-us-research/docker-box) to run and
+develop the app in a Docker container/environment (or use 
+`docker-compose run --service-ports --rm app bash` directly).
 
 ## Available commands
 
