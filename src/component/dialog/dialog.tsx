@@ -4,7 +4,7 @@ import style from "./dialog.module.css";
 
 interface DialogProps {
   title: string;
-  message: string | React.ReactNode; // TODO: where is this being used a string?
+  message: string | React.ReactNode;
   close: () => void;
 }
 
