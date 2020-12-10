@@ -21,6 +21,8 @@ const Splash: React.FC<SplashProps> = () => {
     >
       <div>
         <div className={styles.card}>
+          {/* Disable warning as the game is called "Image Fun" */}
+          {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
           <img src={logo} alt="Image Fun" />
         </div>
         <div className={styles.actions}>

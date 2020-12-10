@@ -20,6 +20,8 @@ const HowToPlay: React.FC<HowToPlayProps> = () => {
       }}
     >
       <div className={styles.brand}>
+        {/* Disable warning as the game is called "Image Fun" */}
+        {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
         <img src={logo} alt="Image Fun" width="100%" />
       </div>
       <article>
