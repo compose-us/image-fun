@@ -2,16 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./assets/style.css";
 import { ContextProviders } from "./context/context-providers";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import AppSwitch from "./component/app-switch/app-switch";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
     <ContextProviders>
-      <BrowserRouter>
+      <HashRouter>
         <AppSwitch />
-      </BrowserRouter>
+      </HashRouter>
     </ContextProviders>
   </React.StrictMode>,
   document.getElementById("root")
