@@ -1,5 +1,5 @@
 import React from "react";
-import getBackgroundImage from "../../lib/get-background-image/get-background-image";
+import getUnsplashImage from "../../lib/get-unsplash-image";
 
 /** Context **/
 interface GameSettingsContextProps {
@@ -28,10 +28,11 @@ export const GameSettingsProvider: React.FC<GameSettingsProviderProps> = ({
   });
 
   React.useEffect(() => {
-    const backgroundImage = getBackgroundImage([
-      window.innerHeight,
-      window.innerWidth,
-    ]);
+    const backgroundImage = getUnsplashImage({
+      width: window.innerWidth,
+      height: window.innerHeight,
+      keyword: "background",
+    });
     setState({ backgroundImage: backgroundImage.url });
   }, []);
 
