@@ -12,10 +12,11 @@ const HintButton: React.FC<any> = () => {
       }
     };
     document.addEventListener("keydown", hKeyListener);
+
     return () => {
       document.removeEventListener("keydown", hKeyListener);
     };
-  }, [toggleHint]);
+  }, [toggleHint, showSolver]);
 
   return (
     <React.Fragment>
