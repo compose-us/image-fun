@@ -18,6 +18,7 @@ const ValidationDialog: React.FC<ValidationDialogProps> = ({
     <React.Fragment>
       {active && (
         <Dialog
+          animate={solved}
           title={solved ? "Yesss!" : "Nope..."}
           message={
             solved
