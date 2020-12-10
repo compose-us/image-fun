@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import pairGenerator from "../../lib/pair-generator";
 
 /** Context **/
@@ -44,19 +44,33 @@ interface GameStateProviderProps {
 export const GameStateProvider: React.FC<GameStateProviderProps> = ({
   children,
 }) => {
-  const [state, setState] = React.useState<GameStateContextProps>({
+  const [state, setState] = useState<GameStateContextProps>({
     showHint: defaultValues.showHint,
     showSolver: defaultValues.showSolver,
     compoundWord: defaultValues.compoundWord,
   });
 
-  const reset = () => {
+  const toggleHint = useCallback(() => {
+    setState((oldState) => ({
+      ...oldState,
+      showHint: !oldState.showHint,
+    }));
+  }, [setState]);
+
+  const toggleSolver = useCallback(() => {
+    setState((oldState) => ({
+      ...oldState,
+      showSolver: !oldState.showSolver,
+    }));
+  }, [setState]);
+
+  const resetCompoundWord = useCallback(() => {
     const newCompoundWord = pairGenerator();
-    setState({
-      ...state,
+    setState((oldState) => ({
+      ...oldState,
       compoundWord: newCompoundWord,
-    });
-  };
+    }));
+  }, [setState]);
 
   return (
     <GameStateContext.Provider
@@ -64,19 +78,9 @@ export const GameStateProvider: React.FC<GameStateProviderProps> = ({
         showHint: state.showHint,
         showSolver: state.showSolver,
         compoundWord: state.compoundWord,
-        toggleHint: () => {
-          setState({
-            ...state,
-            showHint: !state.showHint,
-          });
-        },
-        toggleSolver: () => {
-          setState({
-            ...state,
-            showSolver: !state.showSolver,
-          });
-        },
-        resetCompoundWord: reset,
+        toggleHint,
+        toggleSolver,
+        resetCompoundWord,
       }}
     >
       {children}
