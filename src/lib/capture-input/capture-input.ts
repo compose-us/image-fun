@@ -1,5 +1,5 @@
-const captureInput = (state: string, value: string, index: number) => {
-  return state.slice(0, index) + value + state.slice(index + 1);
+const captureInput = (word: string, letter: string, index: number) => {
+  return word.slice(0, index) + letter + word.slice(index + 1);
 };
 
 export default captureInput;
