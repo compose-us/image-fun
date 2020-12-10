@@ -1,9 +1,4 @@
 .root {
-  margin: 0 10px;
-  flex-grow: 1;
-}
-
-.input {
   padding: 8px;
   margin: 2px;
   border: none;

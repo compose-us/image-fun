@@ -14,24 +14,20 @@ const LetterInput = React.forwardRef<HTMLInputElement, LetterInputProps>(
     ref
   ) => {
     return (
-      <div className={styles.root}>
-        <input
-          className={styles.input}
-          disabled={disabled}
-          maxLength={1}
-          onKeyDown={onKeyDown}
-          onChange={
-            onChange && ((event) => onChange(event.currentTarget.value))
-          }
-          onFocus={(event) => {
-            event.currentTarget.setSelectionRange(0, 1);
-          }}
-          readOnly={!onChange}
-          ref={ref}
-          type="text"
-          value={letter || ""}
-        />
-      </div>
+      <input
+        className={styles.root}
+        disabled={disabled}
+        maxLength={1}
+        onKeyDown={onKeyDown}
+        onChange={onChange && ((event) => onChange(event.currentTarget.value))}
+        onFocus={(event) => {
+          event.currentTarget.setSelectionRange(0, 1);
+        }}
+        readOnly={!onChange}
+        ref={ref}
+        type="text"
+        value={letter || ""}
+      />
     );
   }
 );

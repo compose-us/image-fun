@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import LetterInput from "../letter-input/letter-input";
 import ValidationDialog from "../validation-dialog/validation-dialog";
 import { useHistory } from "react-router-dom";
+import style from "./solution-display.module.css";
 
 interface SolutionDisplayProps {
   solution: string[];
@@ -47,62 +48,65 @@ const SolutionDisplay: React.FC<SolutionDisplayProps> = ({ solution }) => {
         setValidation(true);
       }}
     >
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-        }}
-      >
-        {defaultUserInput.map((_space, index) => {
-          return (
-            <LetterInput
-              key={index}
-              letter={userInput[index]}
-              onChange={(letter) => {
-                if (letter.length === 1) {
-                  setUserInput([
-                    ...userInput.slice(0, index),
-                    letter,
-                    ...userInput.slice(index + 1),
-                  ]);
-                  const nextChild =
-                    letterRefs.current[(index + 1) % letterRefs.current.length];
+      <div className={style.root}>
+        <div className={style.word}>
+          {defaultUserInput.map((_space, index) => {
+            return (
+              <React.Fragment key={index}>
+                {solution[0].length === index && (
+                  <span className={style.spacer} />
+                )}
+                <LetterInput
+                  letter={userInput[index]}
+                  onChange={(letter) => {
+                    if (letter.length === 1) {
+                      setUserInput([
+                        ...userInput.slice(0, index),
+                        letter,
+                        ...userInput.slice(index + 1),
+                      ]);
+                      const nextChild =
+                        letterRefs.current[
+                          (index + 1) % letterRefs.current.length
+                        ];
 
-                  nextChild.focus();
-                } else {
-                  setUserInput([
-                    ...userInput.slice(0, index),
-                    null,
-                    ...userInput.slice(index + 1),
-                  ]);
-                }
-              }}
-              onKeyDown={(event) => {
-                if (
-                  event.keyCode === 46 /* delete */ ||
-                  event.keyCode === 8 /* backspace */
-                ) {
-                  // focus before
-                  event.preventDefault();
-                  setUserInput([
-                    ...userInput.slice(0, index),
-                    null,
-                    ...userInput.slice(index + 1),
-                  ]);
+                      nextChild.focus();
+                    } else {
+                      setUserInput([
+                        ...userInput.slice(0, index),
+                        null,
+                        ...userInput.slice(index + 1),
+                      ]);
+                    }
+                  }}
+                  onKeyDown={(event) => {
+                    if (
+                      event.keyCode === 46 /* delete */ ||
+                      event.keyCode === 8 /* backspace */
+                    ) {
+                      // focus before
+                      event.preventDefault();
+                      setUserInput([
+                        ...userInput.slice(0, index),
+                        null,
+                        ...userInput.slice(index + 1),
+                      ]);
 
-                  const previousChild =
-                    letterRefs.current[
-                      (letterRefs.current.length + index - 1) %
-                        letterRefs.current.length
-                    ];
+                      const previousChild =
+                        letterRefs.current[
+                          (letterRefs.current.length + index - 1) %
+                            letterRefs.current.length
+                        ];
 
-                  previousChild.focus();
-                }
-              }}
-              ref={addToRef}
-            />
-          );
-        })}
+                      previousChild.focus();
+                    }
+                  }}
+                  ref={addToRef}
+                />
+              </React.Fragment>
+            );
+          })}
+        </div>
       </div>
       <br />
       <button type="submit" aria-label="Verify your answer">
