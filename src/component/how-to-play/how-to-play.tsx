@@ -19,10 +19,10 @@ const HowToPlay: React.FC<HowToPlayProps> = () => {
         backgroundSize: "cover",
       }}
     >
-      <div className={styles.brand}>
+      <div className={styles.card}>
         {/* Disable warning as the game is called "Image Fun" */}
         {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
-        <img src={logo} alt="Image Fun" width="100%" />
+        <img src={logo} alt="Image Fun" />
       </div>
       <article>
         <h1>How To Play</h1>
