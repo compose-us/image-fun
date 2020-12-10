@@ -1,4 +1,5 @@
 import React from "react";
+import { useGameState } from "../../context/game-state-context/game-state-context";
 import Dialog from "../dialog/dialog";
 
 interface ValidationDialogProps {
@@ -11,20 +12,23 @@ const ValidationDialog: React.FC<ValidationDialogProps> = ({
   active,
   solved,
   onClose,
-}) => (
-  <React.Fragment>
-    {active && (
-      <Dialog
-        title={solved ? "Yesss!" : "Nope..."}
-        message={
-          solved
-            ? "You solved this puzzle!"
-            : "Sorry, this is not the correct thing"
-        }
-        close={onClose}
-      />
-    )}
-  </React.Fragment>
-);
+}) => {
+  const { compoundWord } = useGameState();
+  return (
+    <React.Fragment>
+      {active && (
+        <Dialog
+          title={solved ? "Yesss!" : "Nope..."}
+          message={
+            solved
+              ? "You solved this puzzle!"
+              : `Sorry, the correct answer was: ${compoundWord.join(" ")}`
+          }
+          close={onClose}
+        />
+      )}
+    </React.Fragment>
+  );
+};
 
 export default ValidationDialog;
