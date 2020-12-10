@@ -1,6 +1,6 @@
 describe("App", () => {
   beforeEach(() => {
-    cy.visit("/");
+    cy.visit("/game");
   });
   it("shows hints on 'h' keypress", () => {
     cy.get("body")
