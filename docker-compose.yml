@@ -5,5 +5,5 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - .:/game:delegated
+      - .:/app:delegated
     command: npm start
