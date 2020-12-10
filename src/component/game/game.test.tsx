@@ -1,9 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Game from './game';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import Game from "./game";
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Game />, div);
+it("renders without crashing", () => {
+  const div = document.createElement("div");
+  ReactDOM.render(
+    <BrowserRouter>
+      <Game />
+    </BrowserRouter>,
+    div
+  );
   ReactDOM.unmountComponentAtNode(div);
 });
