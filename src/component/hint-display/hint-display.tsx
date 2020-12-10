@@ -12,8 +12,8 @@ const HintDisplay: React.FC<HintDisplayProps> = ({ secrets }) => (
       flexWrap: "wrap",
     }}
   >
-    {secrets.map((secret) => (
-      <CompoundWordDisplay word={secret} />
+    {secrets.map((secret, index) => (
+      <CompoundWordDisplay key={index} word={secret} />
     ))}
   </div>
 );
