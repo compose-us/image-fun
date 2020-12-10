@@ -5,23 +5,14 @@ describe("getHintFromWords", () => {
     const first = "first";
     const second = "second";
     const hint = getHintFromWords(first, second);
-    expect(hint.length === first.length || hint.length === second.length).toBe(
-      true
-    );
+    expect(hint[0].length).toBe(first.length);
+    expect(hint[1].length).toBe(second.length);
   });
 
-  it("should select one of the two words as hint", () => {
+  it("selects hints from both words", () => {
     const first = "first";
     const second = "second";
-    const firstResult = getHintFromWords(first, second);
-    for (let i = 0; i < 100; i++) {
-      const secondResult = getHintFromWords(first, second);
-      if (firstResult.length !== secondResult.length) return;
-    }
-    // if it did not find another value within 100 tries, this will probably
-    // fail as well...
-    expect(getHintFromWords(first, second).length).not.toEqual(
-      firstResult.length
-    );
+    const hints = getHintFromWords(first, second);
+    expect(hints.length).toBe(2);
   });
 });

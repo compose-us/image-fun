@@ -1,0 +1,47 @@
+.solved {
+  --animate-when-solved: var(--animation-party);
+}
+
+button {
+  animation: var(--animate-when-solved);
+  background-color: var(--button-color);
+  border: 1px solid var(--button-text-color);
+  color: var(--button-text-color);
+  padding: 10px;
+}
+
+.app {
+  position: relative;
+  background-color: #000;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+.restart {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+
+.hint {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+}
+
+.solver-form .solver-input button {
+  background-color: var(--button-color);
+}
+
+.grid {
+  transition: filter 1s;
+}
+
+.solving .grid {
+  filter: brightness(0.6) blur(10px);
+}
+
+.general .grid {
+  filter: brightness(1) blur(0px);
+}
