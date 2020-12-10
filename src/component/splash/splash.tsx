@@ -26,8 +26,8 @@ const Splash: React.FC<SplashProps> = () => {
           <img src={logo} alt="Image Fun" />
         </div>
         <div className={styles.actions}>
-          <Button to="/game" label={"Start Game"} />
-          <Button to="/how-to-play" label={"How to Play"} />
+          <Button to="/game" label="Start Game" />
+          <Button to="/how-to-play" label="How to Play" />
         </div>
       </div>
       <Footer />
