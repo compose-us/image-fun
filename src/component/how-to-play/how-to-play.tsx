@@ -26,7 +26,7 @@ const HowToPlay: React.FC<HowToPlayProps> = () => {
       </div>
       <article>
         <h1>How To Play</h1>
-        <p>Find out how well you know your compound words</p>
+        <p>Find out how well you know your open compound words.</p>
         <section>
           <h2>Objective:</h2>
           <p>
