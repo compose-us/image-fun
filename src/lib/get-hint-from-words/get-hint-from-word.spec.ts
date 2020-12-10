@@ -6,10 +6,12 @@ describe("getHintFromWord", () => {
     const chars = word.split("").sort();
     const hintChars = getHintFromWord(word)
       .split("")
-      .filter(c => c !== ".")
+      .filter((c) => c !== "*")
       .sort();
-    hintChars.forEach(char => {
-      expect(chars.find(c => c === char)).not.toBeFalsy();
+    hintChars.forEach((char) => {
+      expect(
+        chars.find((c) => c.toLowerCase() === char.toLowerCase())
+      ).not.toBeFalsy();
     });
   });
 
@@ -30,7 +32,7 @@ describe("getHintFromWord", () => {
 
     function checkAmountOfHintChars(word: string, expectedAmount: number) {
       const hintChars = getHintFromWord(word).split("");
-      const amountOfHintChars = hintChars.filter(w => w !== ".").length;
+      const amountOfHintChars = hintChars.filter((w) => w !== "*").length;
       expect(amountOfHintChars).toBe(expectedAmount);
     }
   });
@@ -40,8 +42,8 @@ describe("getHintFromWord", () => {
     const maxChars = Math.floor(word.length / 3);
     for (let i = 0; i < 100; i++) {
       const hintChars = getHintFromWord(word, maxChars).split("");
-      const amountOfHintChars = hintChars.filter(w => w !== ".").length;
-      const amountOfHiddenChars = hintChars.filter(w => w === ".").length;
+      const amountOfHintChars = hintChars.filter((w) => w !== "*").length;
+      const amountOfHiddenChars = hintChars.filter((w) => w === "*").length;
       expect(amountOfHintChars).toBe(maxChars);
       expect(amountOfHiddenChars).toBe(word.length - maxChars);
     }
