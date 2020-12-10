@@ -23,7 +23,9 @@ const Dialog: React.FC<DialogProps> = ({ animate, close, message, title }) => {
         <h3>{title}</h3>
         {typeof message === "string" ? <h4>{message}</h4> : message}
         <br />
-        <button onClick={close}>Close</button>
+        <button autoFocus onClick={close}>
+          Close
+        </button>
       </div>
     </div>
   );

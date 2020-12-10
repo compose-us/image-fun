@@ -57,6 +57,7 @@ const SolutionDisplay: React.FC<SolutionDisplayProps> = ({ solution }) => {
                   <span className={style.spacer} />
                 )}
                 <LetterInput
+                  disabled={validate}
                   letter={userInput[index]}
                   onChange={(letter) => {
                     if (letter.length === 1) {
@@ -109,7 +110,11 @@ const SolutionDisplay: React.FC<SolutionDisplayProps> = ({ solution }) => {
         </div>
       </div>
       <br />
-      <button type="submit" aria-label="Verify your answer">
+      <button
+        type="submit"
+        aria-label="Verify your answer"
+        tabIndex={validate ? -1 : 0}
+      >
         Solve
       </button>
       <ValidationDialog
