@@ -4,8 +4,6 @@ interface ImageProps {
   src: string;
   height: number;
   width: number;
-  x?: number;
-  y?: number;
 }
 
 const Image: React.FC<ImageProps> = ({ src, width, height }) => {
