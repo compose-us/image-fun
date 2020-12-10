@@ -7,7 +7,7 @@ const HintButton: React.FC<any> = () => {
 
   useEffect(() => {
     const hKeyListener = (event: KeyboardEvent) => {
-      if (event.code === "KeyH") {
+      if (event.code === "KeyH" && !showSolver) {
         toggleHint();
       }
     };
