@@ -4,7 +4,7 @@ A small puzzle game to find out words based on presented images.
 
 ## Building and running
 
-There is a [live demo](https://compose-us-research.github.io/image-fun/) of this
+There is a [live demo](https://compose-us.github.io/image-fun/) of this
 game on GitHub pages.
 
 There is a `docker-compose.yml` file which opens port 3000 for the development
