@@ -1,3 +1,5 @@
+[![deploy](https://github.com/compose-us/image-fun/actions/workflows/deploy.yml/badge.svg)](https://github.com/compose-us/image-fun/actions/workflows/deploy.yml)
+
 # image-fun
 
 A small puzzle game to find out words based on presented images.
@@ -8,9 +10,9 @@ There is a [live demo](https://compose-us.github.io/image-fun/) of this
 game on GitHub pages.
 
 There is a `docker-compose.yml` file which opens port 3000 for the development
-server. You can use 
+server. You can use
 [docker-box](https://github.com/compose-us-research/docker-box) to run and
-develop the app in a Docker container/environment (or use 
+develop the app in a Docker container/environment (or use
 `docker-compose run --service-ports --rm app bash` directly).
 
 ## Available commands
